@@ -43,6 +43,7 @@ public class BugablePlayer : BugableObject
         }
         transform.rotation = Quaternion.identity;
         transform.position = originPosition;
+        GetComponent<PlayerHP>().Reset();
     }
 
     // Update is called once per frame

@@ -1,3 +1,4 @@
+using System;
 using LitJson;
 using PixelCrushers.DialogueSystem;
 using Pool;
@@ -30,7 +31,8 @@ public class Inventory : Singleton<Inventory>
     public bool startInventory;
     public int maxCount = 7;
     public bool checkMaxCount = false;
-    bool canUseItemOutRange = true;
+    //bool canUseItemOutRange = true;
+    private BugablePlayer player;
     public bool canAddItem(string itemName, int value = 1)
     {
         return true;
@@ -137,12 +139,16 @@ public class Inventory : Singleton<Inventory>
         
         if(index>= itemList.Count)
         {
-            if (canUseItemOutRange)
+            if (BugManager.Instance.fixedBugs[7] == BugStatus.BugFixed)
             {
-                //ErrorPopup
+                return;
+                
             }
             else
             {
+                BugManager.Instance.fixBug(7);
+                ErrorPopup.Instance.ShowError("ArgumentOutOfRangeException: Index was out of range. ");
+                CSDialogManager.Instance.StartConversationo("useItemNotExisted");
                 return;
             }
         }
@@ -151,10 +157,13 @@ public class Inventory : Singleton<Inventory>
         Debug.Log("use " + itemName);
         switch (itemName) {
             case "sword":
+                
+                
                 break;
             case "apple":
 
                 itemList.RemoveAt(index);
+                player.GetComponent<PlayerHP>().AddHP(1);
                 break;
             default:
                 Debug.LogError("try to use " + itemName + " that does not have code for it");
@@ -236,5 +245,10 @@ public class Inventory : Singleton<Inventory>
         //        }
         //    }
         //}
+    }
+
+    private void Start()
+    {
+        player = GameObject.FindObjectOfType<BugablePlayer>();
     }
 }

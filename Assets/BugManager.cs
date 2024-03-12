@@ -16,6 +16,9 @@ public class BugManager : Singleton<BugManager>
     //5 open chest more than once
     //6 too many inventory
     //7 use inventory that is not exist
+    //8 use apple to heal more than max HP
+    //9 make hp less than 0 and not kill
+    //
 
     // Start is called before the first frame update
     void Start()

@@ -27,6 +27,13 @@ public class InventoryCell : MonoBehaviour
     {
         if (GameManager.Instance.isInFindBugMode)
         {
+            if (BugManager.Instance.fixedBugs[6] == BugStatus.BugDefault && index>=Inventory.Instance.maxCount)
+            {
+                string dialogname = "tooManyInventory";
+                DialogueManager.StartConversation(dialogname, null, null);
+                BugManager.Instance.fixBug(6);
+                return;
+            }
             if (BugManager.Instance.fixedBugs[5] == BugStatus.BugDefault && name == "sword")
             {
                 int swordCount = 0;
@@ -45,13 +52,8 @@ public class InventoryCell : MonoBehaviour
                     return;
                 }
             }
-            if (BugManager.Instance.fixedBugs[6] == BugStatus.BugDefault && index>=Inventory.Instance.maxCount)
-            {
-                    string dialogname = "tooManyInventory";
-                    DialogueManager.StartConversation(dialogname, null, null);
-                    BugManager.Instance.fixBug(6);
-                    return;
-            }
+            
+            DialogueManager.StartConversation("inventory", null, null);
         }
     }
 

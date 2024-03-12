@@ -20,6 +20,14 @@ public class CSDialogManager : Singleton<CSDialogManager>
         
     }
 
+    public void StartConversationo(string dialogname)
+    {
+        if (!CSDialogManager.Instance.finishedDialogue.ContainsKey(dialogname))
+        {
+            CSDialogManager.Instance.finishedDialogue[dialogname] = true;
+            DialogueManager.StartConversation(dialogname, null, null);
+        }
+    }
     public void startDialog()
     {
         if(DialogueManager.lastConversationStarted == "NPCInTown" && BugManager.Instance.fixedBugs[4] != BugStatus.BugFixed)

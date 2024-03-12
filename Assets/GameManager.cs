@@ -5,11 +5,12 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-
+    public BugablePlayer player;
     public bool isInFindBugMode;
     void Start()
     {
-
+        
+        player = GameObject.FindObjectOfType<BugablePlayer>();
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
     }
     void OnBugFixed(int id)

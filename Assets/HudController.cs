@@ -19,9 +19,12 @@ public class HudController : Singleton<HudController>
     Color transparentColor;
     Color redColor;
 
+    private HPsHandler hPsHandler;
+
     // Use this for initialization
     void Start()
     {
+        hPsHandler = GetComponentInChildren<HPsHandler>();
         //pauseButton.onClick.AddListener(OnClickPauseButton);
         foundBugButton.onClick.AddListener(OnClickFoundBugButton);
         //redColor = hintSpriteRender.color;
@@ -59,6 +62,11 @@ public class HudController : Singleton<HudController>
         {
             foundBugButtonText.text = "FOUND IT!";
         }
+    }
+
+    public void SetHP(int amount)
+    {
+        hPsHandler.SetHP(amount);
     }
 
     // Update is called once per frame
