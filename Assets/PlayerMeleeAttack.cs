@@ -7,7 +7,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     public float cooldownTime = 0.2f;
     float currentCooldownTimer;
     Collider2D collider;
-    PlayerController playerController;
+   // PlayerController playerController;
     
     public float attackRange = 1f; // 扇形的半径
     public float attackAngle = 90f; // 扇形的开口角度
@@ -16,7 +16,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerController = GetComponentInParent<PlayerController>();
+       // playerController = GetComponentInParent<PlayerController>();
         collider = GetComponent<Collider2D>();
         animator = GetComponent<PlayerHP>().animator;
     }

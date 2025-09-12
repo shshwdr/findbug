@@ -5,6 +5,22 @@ using UnityEngine;
 public enum BugStatus  { BugDefault, BugTriggered, BugWillBeFixed,BugFixed};
 public class BugManager : Singleton<BugManager>
 {
+    public List<string> bugs = new List<string>()
+    {
+        "Walls have no collider",
+        "Player rotate when collide with wall",
+        "Door has no collider",
+        "Flowers show on top of player",
+        "Player can move while in dialogue",
+        "Chest can be opened more than once",
+        "Player get too many inventory",
+        "Player use inventory that does not exist",
+        "Apple heals more than max hp",
+        "Player's hp gets to 0 but still alive",
+        "Stone keeps attacking player for too many times",
+        "Player can equip both equipment",
+    };
+    
     //0 not triggered
     //1 triggered
     public BugStatus[] fixedBugs = new BugStatus[100]; 
@@ -19,8 +35,8 @@ public class BugManager : Singleton<BugManager>
     //8 use apple to heal more than max HP
     //9 make hp less than 0 and not kill
     //10 stone keep attacking player for too many times
-    //10 stack too many stone not released
-    //11 
+    
+    //11 equip both equipment
 //int[] bugsToBattleArea = new int[10] {4,5,};
     // Start is called before the first frame update
     void Start()
@@ -28,7 +44,8 @@ public class BugManager : Singleton<BugManager>
     }
 
         public void fixBug(int id)
-    {
+        {
+            BugManager.Instance.fixedBugs[10] = BugStatus.BugDefault;
         if(fixedBugs[id]!= BugStatus.BugWillBeFixed && fixedBugs[id] != BugStatus.BugFixed)
         {
             fixedBugs[id] = BugStatus.BugWillBeFixed;

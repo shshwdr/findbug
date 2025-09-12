@@ -11,6 +11,7 @@ public class HudController : Singleton<HudController>
     //public Button pauseButton;
     public Button foundBugButton;
     public TextMeshProUGUI foundBugButtonText;
+    public Button restartButton;
 
     //public Image hintSpriteRender;
 
@@ -30,7 +31,21 @@ public class HudController : Singleton<HudController>
         //redColor = hintSpriteRender.color;
         transparentColor = new Color(redColor.r, redColor.g, redColor.b, 0);
         UpdateUI();
+        HideRestartButton();
+restartButton.onClick.AddListener(() =>
+{
+    FindObjectOfType<BugablePlayer>().OnRestart();
+    // GameManager.Instance.GetIntoPlayMode();
+});
+    }
 
+    public void ShowRestartButton()
+    {
+        restartButton.gameObject.SetActive(true);
+    }
+    public void HideRestartButton()
+    {
+        restartButton.gameObject.SetActive(false);
     }
 
 

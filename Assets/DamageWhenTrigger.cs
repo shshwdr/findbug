@@ -17,9 +17,9 @@ public class DamageWhenTrigger : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<PlayerController>())
-        {
-            collision.GetComponent<PlayerController>().getDamage();
-        }
+        // if (collision.GetComponent<PlayerController>())
+        // {
+        //     collision.GetComponent<PlayerController>().getDamage();
+        // }
     }
 }

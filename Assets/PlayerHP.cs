@@ -37,4 +37,17 @@ public class PlayerHP : HPCharacterController
         base.Awake();
         hpBar = HudController.Instance.hPsHandler;
     }
+
+    protected override void Die()
+    {
+        if (BugManager.Instance.fixedBugs[9] == BugStatus.BugFixed)
+        {
+            base.Die();
+            animator.SetTrigger("die");
+            if (BugManager.Instance.fixedBugs[10] == BugStatus.BugFixed)
+            {
+                HudController.Instance.ShowRestartButton();
+            }
+        }
+    }
 }

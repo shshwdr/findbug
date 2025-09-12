@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,12 +12,26 @@ public class EnemyBullet : MonoBehaviour
         
     }
 
+    private bool isHitPlayer = false;
+    private void Update()
+    {
+        if (isHitPlayer)
+        {
+            BugManager.Instance.fixedBugs[10] = BugStatus.BugTriggered;
+            FindObjectOfType<PlayerHP>().getDamage();
+        }
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.GetComponent<PlayerHP>())
         {
             collision.collider.GetComponent<PlayerHP>().getDamage();
-            Destroy(gameObject);
+            isHitPlayer = true;
+            if (BugManager.Instance.fixedBugs[10] == BugStatus.BugFixed)
+            {
+                Destroy(gameObject);
+            }
         }
         else if (ignoreOtherCollider)
         {
@@ -34,12 +49,20 @@ public class EnemyBullet : MonoBehaviour
         if (collision.GetComponent<PlayerHP>())
         {
             collision.GetComponent<PlayerHP>().getDamage();
-            Destroy(gameObject);
+            isHitPlayer = true;
+            if (BugManager.Instance.fixedBugs[10] == BugStatus.BugFixed)
+            {
+                Destroy(gameObject);
+            }
         }
         else if (collision. GetComponentInParent<PlayerHP>())
         {
             collision.GetComponentInParent<PlayerHP>().getDamage();
-            Destroy(gameObject);
+            isHitPlayer = true;
+            if (BugManager.Instance.fixedBugs[10] == BugStatus.BugFixed)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

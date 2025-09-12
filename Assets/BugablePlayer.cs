@@ -21,7 +21,7 @@ public class BugablePlayer : BugableObject
     {
         collider = GetComponent<CapsuleCollider2D>();
         trigger = GetComponent<CircleCollider2D>();
-        collider.enabled = false;
+        collider.isTrigger = true;
         originPosition = transform.position;
     }
     // Start is called before the first frame update
@@ -36,17 +36,21 @@ public class BugablePlayer : BugableObject
     {
         if (id == 0)
         {
-            collider.enabled = true;
+            collider.isTrigger = false;
         }if(id == 1)
         {
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
         }
+
+        OnRestart();
+    }
+
+    public void OnRestart()
+    {
+        
         transform.rotation = Quaternion.identity;
         transform.position = originPosition;
         GetComponent<PlayerHP>().Reset();
-        
-        
-        
     }
 
     // Update is called once per frame
@@ -102,6 +106,22 @@ public class BugablePlayer : BugableObject
     public override bool DidTap()
     {
         base.DidTap();
+        if (BugManager.Instance.fixedBugs[9] == BugStatus.BugDefault && GameManager.Instance.player.GetComponent<PlayerHP>().currentHP<0)
+        {
+                
+            string dialogname = "killedButStillAlive";
+            BugManager.Instance.fixBug(9);
+            DialogueManager.StartConversation(dialogname, null, null);
+                
+            return true;
+        }
+        if (BugManager.Instance.fixedBugs[10] == BugStatus.BugTriggered)
+        {
+            string dialogname = "StoneAttackTooManyTimes";
+            DialogueManager.StartConversation(dialogname, null, null);
+            BugManager.Instance.fixBug(10);
+            return true;
+        }
         if (BugManager.Instance.fixedBugs[0] == BugStatus.BugTriggered)
         {
             string dialogname = "fixWallBug";

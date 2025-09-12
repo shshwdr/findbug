@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class InventoryController : MonoBehaviour
 {
+    public GameObject inventoryUI;
     public Transform content;
     InventoryCell[] cells;
     // Start is called before the first frame update
@@ -16,13 +17,13 @@ public class InventoryController : MonoBehaviour
             cell.gameObject.SetActive(false);
         }
 
-        content.gameObject.SetActive(false);
+        inventoryUI.gameObject.SetActive(false);
         EventPool.OptIn("inventoryChanged", onUpdateInventory);
     }
 
     void onUpdateInventory()
     {
-        content.gameObject.SetActive(true);
+        inventoryUI.gameObject.SetActive(true);
         int i=0;
         for (;i<Mathf.Min( Inventory.Instance.itemList.Count, cells.Length); i++)
         {
