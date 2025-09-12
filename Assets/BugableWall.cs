@@ -17,8 +17,24 @@ public class BugableWall : BugableObject
     {
         if(id == 0)
         {
-            GetComponent<TilemapCollider2D>().isTrigger = false;
+            foreach (var box in GetComponentsInChildren<BoxCollider2D>())
+            {
+                box.gameObject.SetActive(false);
+            }
+            //GetComponent<TilemapCollider2D>().isTrigger = false;
+           // GetComponent<TilemapCollider2D>().enabled = false;
+            StartCoroutine(test());
         }
+    }
+
+    IEnumerator test()
+    {
+        yield return new WaitForSeconds(0.1f);
+        foreach (var box in GetComponentsInChildren<BoxCollider2D>(true))
+        {
+            box.gameObject.SetActive(true);
+        }
+        
     }
 
     // Update is called once per frame

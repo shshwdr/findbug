@@ -14,8 +14,8 @@ public class InventoryCell : MonoBehaviour
     int index;
     Dictionary<string, string> nameToUsage = new Dictionary<string, string>()
     {
-        {"apple","Space to Eat" },
-        {"sword","Space To Equip" }
+        {"apple","Eat" },
+        {"sword","Equip" }
     };
     // Start is called before the first frame update
     void Start()

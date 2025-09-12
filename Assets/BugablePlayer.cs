@@ -57,6 +57,32 @@ public class BugablePlayer : BugableObject
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
+        // if (BugManager.Instance.fixedBugs[0] == BugStatus.BugDefault)
+        // {
+        //     if (collision.GetComponent<BugableWall>())
+        //     {
+        //         string dialogname = "triggerWallBug";
+        //         if (!CSDialogManager.Instance.finishedDialogue.ContainsKey(dialogname))
+        //         {
+        //             CSDialogManager.Instance.finishedDialogue[dialogname] = true;
+        //             DialogueManager.StartConversation(dialogname, null, null);
+        //         }
+        //     }
+        //     BugManager.Instance.fixedBugs[0] = BugStatus.BugTriggered;
+        // }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (BugManager.Instance.fixedBugs[0] == BugStatus.BugTriggered)
+        {
+            if (collision.GetComponent<BugableWall>())
+            {
+
+                BugManager.Instance.fixedBugs[0] = BugStatus.BugDefault;
+            }
+        }
+        
         if (BugManager.Instance.fixedBugs[0] == BugStatus.BugDefault)
         {
             if (collision.GetComponent<BugableWall>())
@@ -69,18 +95,6 @@ public class BugablePlayer : BugableObject
                 }
             }
             BugManager.Instance.fixedBugs[0] = BugStatus.BugTriggered;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (BugManager.Instance.fixedBugs[0] == BugStatus.BugTriggered)
-        {
-            if (collision.GetComponent<BugableWall>())
-            {
-
-                BugManager.Instance.fixedBugs[0] = BugStatus.BugDefault;
-            }
         }
     }
 
@@ -128,5 +142,10 @@ public class BugablePlayer : BugableObject
             //normal dialogues
         }
         return false;
+    }
+    
+    public  void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log("test");
     }
 }
