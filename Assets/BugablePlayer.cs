@@ -110,8 +110,8 @@ public class BugablePlayer : BugableObject
         {
                 
             string dialogname = "killedButStillAlive";
-            BugManager.Instance.fixBug(9);
             DialogueManager.StartConversation(dialogname, null, null);
+            BugManager.Instance.fixBug(9);
                 
             return true;
         }

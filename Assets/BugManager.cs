@@ -5,7 +5,7 @@ using UnityEngine;
 public enum BugStatus  { BugDefault, BugTriggered, BugWillBeFixed,BugFixed};
 public class BugManager : Singleton<BugManager>
 {
-    public List<string> bugs = new List<string>()
+    public List<string> bugsDesc = new List<string>()
     {
         "Walls have no collider",
         "Player rotate when collide with wall",
@@ -45,7 +45,6 @@ public class BugManager : Singleton<BugManager>
 
         public void fixBug(int id)
         {
-            BugManager.Instance.fixedBugs[10] = BugStatus.BugDefault;
         if(fixedBugs[id]!= BugStatus.BugWillBeFixed && fixedBugs[id] != BugStatus.BugFixed)
         {
             fixedBugs[id] = BugStatus.BugWillBeFixed;
@@ -78,6 +77,12 @@ public class BugManager : Singleton<BugManager>
             {
                 finishFixBug(i);
             }
+        }
+        
+        
+        if (BugManager.Instance.fixedBugs[10] == BugStatus.BugTriggered)
+        {
+            BugManager.Instance.fixedBugs[10] = BugStatus.BugDefault;
         }
     }
 
