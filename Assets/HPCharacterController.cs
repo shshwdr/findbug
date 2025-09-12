@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class HPCharacterController : MonoBehaviour
 {
-    protected Animator animator;
-    public int maxHp = 10;
-    protected int hp = 0;
-    HPBarHandler hpBar;
-    public bool isDead;
-    public bool isStuned;
+    public int maxHP = 6;
+
+    public int currentHP = 6;
+    public Animator animator;
+    //HPBarHandler hpBar;
+    protected HPsHandler hpBar;
+    public  bool isDead;
+    public  bool isStuned;
 
     public AudioClip[] beHitClips;
 
@@ -21,26 +23,14 @@ public class HPCharacterController : MonoBehaviour
     public bool hasInvinsibleTime;
     public float invinsibleTime = 0.3f;
     float currentInvinsibleTimer;
-    //protected EmotesController emotesController;
-    public  GameObject spriteObject;
+    protected GameObject spriteObject;
     // Start is called before the first frame update
     virtual protected void Awake()
     {
 
-        //emotesController = GetComponentInChildren<EmotesController>();
-        hpBar = GetComponentInChildren<HPBarHandler>();
+        hpBar = GetComponentInChildren<HPsHandler>();
         rb = GetComponent<Rigidbody2D>();
-        if (!spriteObject)
-        {
-            spriteObject = GetComponentInChildren<SpriteRenderer>().gameObject;
-        }
-
     }
-    virtual protected void Start()
-    {
-        hp = maxHp;
-    }
-
     // Update is called once per frame
     virtual protected void Update()
     {
@@ -55,11 +45,11 @@ public class HPCharacterController : MonoBehaviour
         currentInvinsibleTimer += Time.deltaTime;
     }
 
-    public void updateHP()
+    public virtual void updateHP()
     {
 
-        hp = Mathf.Clamp(hp, 0, maxHp);
-        hpBar.SetHealthBarValue(hp / (float)(maxHp));
+        currentHP = Mathf.Clamp(currentHP, 0, maxHP);
+        hpBar.SetHP(currentHP);
     }
     virtual protected void playHurtSound()
     {
@@ -71,15 +61,15 @@ public class HPCharacterController : MonoBehaviour
         {
             return;
         }
-        if (hasInvinsibleTime && currentInvinsibleTimer < invinsibleTime)
+        if(hasInvinsibleTime && currentInvinsibleTimer < invinsibleTime)
         {
             return;
         }
         currentInvinsibleTimer = 0;
-        hp -= damage;
+        currentHP -= damage;
         playHurtSound();
         updateHP();
-        if (hp == 0)
+        if (currentHP == 0)
         {
             Die();
         }

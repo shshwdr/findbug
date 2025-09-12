@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMove : HPCharacterController
 {
 
-    Vector2 movement;
+    public Vector2 movement;
     public float moveSpeed = 5f;
     // Start is called before the first frame update
 
@@ -55,6 +55,12 @@ public class PlayerMove : HPCharacterController
         //base.Update();
         //DialogueManager.StartConversation("firstMerge", null, null);
 
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        spriteObject = GetComponentInChildren<SpriteRenderer>().gameObject;
     }
 
     private void LateUpdate()

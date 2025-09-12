@@ -19,7 +19,7 @@ public class HudController : Singleton<HudController>
     Color transparentColor;
     Color redColor;
 
-    private HPsHandler hPsHandler;
+    public HPsHandler hPsHandler;
 
     // Use this for initialization
     void Start()

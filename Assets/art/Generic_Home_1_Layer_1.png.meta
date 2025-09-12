@@ -474,7 +474,7 @@ TextureImporter:
       213: 5239447945918246153
     second: Generic_Home_1_Layer_1_156
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 13
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -491,10 +491,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -504,11 +506,11 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: -1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -533,6 +535,8 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -544,6 +548,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -556,6 +561,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -568,6 +574,33 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -3880,9 +3913,166 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-  spritePackingTag: 
+    nameFileIdTable:
+      Generic_Home_1_Layer_1_0: -1122893116357543588
+      Generic_Home_1_Layer_1_1: 2592890844905145922
+      Generic_Home_1_Layer_1_10: 5426298816943311358
+      Generic_Home_1_Layer_1_100: -5454681111779669756
+      Generic_Home_1_Layer_1_101: -4133887331941064590
+      Generic_Home_1_Layer_1_102: -564736804319894528
+      Generic_Home_1_Layer_1_103: -8565261260181999304
+      Generic_Home_1_Layer_1_104: -7346494541913279525
+      Generic_Home_1_Layer_1_105: -3307079993160031471
+      Generic_Home_1_Layer_1_106: 8591698167144820730
+      Generic_Home_1_Layer_1_107: -2227744593118113896
+      Generic_Home_1_Layer_1_108: -1725064326612473319
+      Generic_Home_1_Layer_1_109: 498580866949323332
+      Generic_Home_1_Layer_1_11: -7834514533602664933
+      Generic_Home_1_Layer_1_110: 6408598019479917072
+      Generic_Home_1_Layer_1_111: 634479165988760831
+      Generic_Home_1_Layer_1_112: -4464062015342110707
+      Generic_Home_1_Layer_1_113: 3008089136043335338
+      Generic_Home_1_Layer_1_114: -791829118768282612
+      Generic_Home_1_Layer_1_115: -4576069980935073258
+      Generic_Home_1_Layer_1_116: -8955518595679184701
+      Generic_Home_1_Layer_1_117: -5236469330645392222
+      Generic_Home_1_Layer_1_118: 1811671745875556209
+      Generic_Home_1_Layer_1_119: 3381185940051213370
+      Generic_Home_1_Layer_1_12: 4280518663370165211
+      Generic_Home_1_Layer_1_120: 5658317712405647682
+      Generic_Home_1_Layer_1_121: -6261746569394482889
+      Generic_Home_1_Layer_1_122: 3183656897973003624
+      Generic_Home_1_Layer_1_123: 7542682921403268480
+      Generic_Home_1_Layer_1_124: 1683746069547512114
+      Generic_Home_1_Layer_1_125: -1514923693368669508
+      Generic_Home_1_Layer_1_126: -3906778649151640960
+      Generic_Home_1_Layer_1_127: 208618806748249802
+      Generic_Home_1_Layer_1_128: -5951315093544751922
+      Generic_Home_1_Layer_1_129: -8799657116795080013
+      Generic_Home_1_Layer_1_13: 6603368059403348972
+      Generic_Home_1_Layer_1_130: -2196699196587183062
+      Generic_Home_1_Layer_1_131: 2671205277875104216
+      Generic_Home_1_Layer_1_132: -7476564862178297392
+      Generic_Home_1_Layer_1_133: 8959419855064160997
+      Generic_Home_1_Layer_1_134: 4231232531696009925
+      Generic_Home_1_Layer_1_135: -1865314145747429704
+      Generic_Home_1_Layer_1_136: -1238221397977905117
+      Generic_Home_1_Layer_1_137: 4155979257557211050
+      Generic_Home_1_Layer_1_138: 4399666535315492664
+      Generic_Home_1_Layer_1_139: -8266583017831415922
+      Generic_Home_1_Layer_1_14: -8904907904968793885
+      Generic_Home_1_Layer_1_140: 6927816335965154319
+      Generic_Home_1_Layer_1_141: 5640428784431751645
+      Generic_Home_1_Layer_1_142: -936629244715655281
+      Generic_Home_1_Layer_1_143: -3897011149241529906
+      Generic_Home_1_Layer_1_144: 6955424627663958835
+      Generic_Home_1_Layer_1_145: -4143992524779599730
+      Generic_Home_1_Layer_1_146: -702292645997620827
+      Generic_Home_1_Layer_1_147: -3822074697837218242
+      Generic_Home_1_Layer_1_148: 2217825820623986142
+      Generic_Home_1_Layer_1_149: 6081613215883259438
+      Generic_Home_1_Layer_1_15: -1070816405721765678
+      Generic_Home_1_Layer_1_150: 605984350578722401
+      Generic_Home_1_Layer_1_151: -401032981637476868
+      Generic_Home_1_Layer_1_152: -4315925662047716515
+      Generic_Home_1_Layer_1_153: -5465689040765479726
+      Generic_Home_1_Layer_1_154: -5419081773242232074
+      Generic_Home_1_Layer_1_155: 2135328809296387795
+      Generic_Home_1_Layer_1_156: 5239447945918246153
+      Generic_Home_1_Layer_1_16: -5913856799959354450
+      Generic_Home_1_Layer_1_17: -2129558587025515246
+      Generic_Home_1_Layer_1_18: -7290405456796769011
+      Generic_Home_1_Layer_1_19: -5588252728809874348
+      Generic_Home_1_Layer_1_2: -5347751386953378821
+      Generic_Home_1_Layer_1_20: 8530572568596162654
+      Generic_Home_1_Layer_1_21: 385481618426501788
+      Generic_Home_1_Layer_1_22: 8897412131283653722
+      Generic_Home_1_Layer_1_23: 9054312471128928310
+      Generic_Home_1_Layer_1_24: 4189303302807242451
+      Generic_Home_1_Layer_1_25: -385654163054646847
+      Generic_Home_1_Layer_1_26: 2571434685961131662
+      Generic_Home_1_Layer_1_27: 2261360837260588768
+      Generic_Home_1_Layer_1_28: 8545792203516705524
+      Generic_Home_1_Layer_1_29: 6865294284896375744
+      Generic_Home_1_Layer_1_3: 5954656753527138798
+      Generic_Home_1_Layer_1_30: 2683092179582546056
+      Generic_Home_1_Layer_1_31: -2688619845498898506
+      Generic_Home_1_Layer_1_32: 4054754606214710226
+      Generic_Home_1_Layer_1_33: -2712968342362999162
+      Generic_Home_1_Layer_1_34: -131551832454573620
+      Generic_Home_1_Layer_1_35: 1409496317854428217
+      Generic_Home_1_Layer_1_36: 8296174735389701673
+      Generic_Home_1_Layer_1_37: -1814192715741589201
+      Generic_Home_1_Layer_1_38: 3979372573384681365
+      Generic_Home_1_Layer_1_39: -4675988392020848161
+      Generic_Home_1_Layer_1_4: -143940701884630785
+      Generic_Home_1_Layer_1_40: 6675072854889343599
+      Generic_Home_1_Layer_1_41: 3705186949174547997
+      Generic_Home_1_Layer_1_42: -8473064521203252151
+      Generic_Home_1_Layer_1_43: -1541417877903307120
+      Generic_Home_1_Layer_1_44: -7432660205281731470
+      Generic_Home_1_Layer_1_45: -6087358637737399083
+      Generic_Home_1_Layer_1_46: 4194561449277118346
+      Generic_Home_1_Layer_1_47: 3045139644075512558
+      Generic_Home_1_Layer_1_48: 7405394884951746013
+      Generic_Home_1_Layer_1_49: 1580104522730165719
+      Generic_Home_1_Layer_1_5: -2304003338465323703
+      Generic_Home_1_Layer_1_50: -5715981967189878450
+      Generic_Home_1_Layer_1_51: 1191229726677553976
+      Generic_Home_1_Layer_1_52: 4306532272041966693
+      Generic_Home_1_Layer_1_53: 4676679564864137647
+      Generic_Home_1_Layer_1_54: -1487298433203767763
+      Generic_Home_1_Layer_1_55: 7483159720089502584
+      Generic_Home_1_Layer_1_56: 2973838254298044075
+      Generic_Home_1_Layer_1_57: -2798124704186274291
+      Generic_Home_1_Layer_1_58: 3889365430531539597
+      Generic_Home_1_Layer_1_59: -3147622242221403349
+      Generic_Home_1_Layer_1_6: 2061168501776914433
+      Generic_Home_1_Layer_1_60: -5570297507268623084
+      Generic_Home_1_Layer_1_61: 1455164661917620773
+      Generic_Home_1_Layer_1_62: 548292851849830645
+      Generic_Home_1_Layer_1_63: 7089740226228890913
+      Generic_Home_1_Layer_1_64: 2845083957526790150
+      Generic_Home_1_Layer_1_65: -7993086620977576855
+      Generic_Home_1_Layer_1_66: -8754644514848169226
+      Generic_Home_1_Layer_1_67: 568049361173926107
+      Generic_Home_1_Layer_1_68: 6522617810471119030
+      Generic_Home_1_Layer_1_69: -1334014655622408973
+      Generic_Home_1_Layer_1_7: 4538484283536428737
+      Generic_Home_1_Layer_1_70: -5482029287972305848
+      Generic_Home_1_Layer_1_71: -4955996690079666974
+      Generic_Home_1_Layer_1_72: -3044881268508135524
+      Generic_Home_1_Layer_1_73: 6120648314490507335
+      Generic_Home_1_Layer_1_74: 1668692813605164640
+      Generic_Home_1_Layer_1_75: 4704372984678224880
+      Generic_Home_1_Layer_1_76: 1413860645333968436
+      Generic_Home_1_Layer_1_77: 6692059343386529986
+      Generic_Home_1_Layer_1_78: 375376609407461968
+      Generic_Home_1_Layer_1_79: -1229221364326483387
+      Generic_Home_1_Layer_1_8: 2618625066677194995
+      Generic_Home_1_Layer_1_80: -4417583347548517822
+      Generic_Home_1_Layer_1_81: 8967794236166147901
+      Generic_Home_1_Layer_1_82: 4029154143711827296
+      Generic_Home_1_Layer_1_83: 2667271618336997680
+      Generic_Home_1_Layer_1_84: -3821522131165927289
+      Generic_Home_1_Layer_1_85: -8035661526179836242
+      Generic_Home_1_Layer_1_86: -3562226627260888059
+      Generic_Home_1_Layer_1_87: -9261345600584189
+      Generic_Home_1_Layer_1_88: -1830209137422791607
+      Generic_Home_1_Layer_1_89: -3582804350497944888
+      Generic_Home_1_Layer_1_9: 8561579464548349843
+      Generic_Home_1_Layer_1_90: 8257154151943351224
+      Generic_Home_1_Layer_1_91: 9181188498131089337
+      Generic_Home_1_Layer_1_92: 8590390541322134950
+      Generic_Home_1_Layer_1_93: -7059555539902950600
+      Generic_Home_1_Layer_1_94: 8833529277415734918
+      Generic_Home_1_Layer_1_95: -1102929100695741579
+      Generic_Home_1_Layer_1_96: -2821413507478495109
+      Generic_Home_1_Layer_1_97: 6480021351902531917
+      Generic_Home_1_Layer_1_98: -465362540934994359
+      Generic_Home_1_Layer_1_99: -4914539565539433632
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

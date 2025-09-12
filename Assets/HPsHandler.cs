@@ -15,7 +15,11 @@ public class HPsHandler : MonoBehaviour
         {
             hp.setValue(2);
         }
-        button.onClick.AddListener(delegate { onClick(); });
+
+        if (button)
+        {
+            button.onClick.AddListener(delegate { onClick(); });
+        }
     }
 
     void onClick()

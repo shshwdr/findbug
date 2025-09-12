@@ -7,7 +7,7 @@ public class BugManager : Singleton<BugManager>
 {
     //0 not triggered
     //1 triggered
-    public BugStatus[] fixedBugs = new BugStatus[10]; 
+    public BugStatus[] fixedBugs = new BugStatus[100]; 
     //0 wall no collide
     //1 player rotate when collide
     // 2 door is passable
@@ -18,8 +18,10 @@ public class BugManager : Singleton<BugManager>
     //7 use inventory that is not exist
     //8 use apple to heal more than max HP
     //9 make hp less than 0 and not kill
-    //
-
+    //10 stone keep attacking player for too many times
+    //10 stack too many stone not released
+    //11 
+//int[] bugsToBattleArea = new int[10] {4,5,};
     // Start is called before the first frame update
     void Start()
     {
@@ -62,11 +64,26 @@ public class BugManager : Singleton<BugManager>
         }
     }
 
+    public int fixedBugCount()
+    {
+        int res = 0;
+        foreach (var bug in fixedBugs)
+        {
+            if (bug == BugStatus.BugFixed)
+            {
+                res++;
+            }
+        }
+
+        return res;
+    }
+    
     public void finishFixBug(int i)
     {
 
         fixedBugs[i] = BugStatus.BugFixed;
         EventPool.Trigger<int>(EventPool.bugFixed, i);
+        
     }
 
     // Update is called once per frame
