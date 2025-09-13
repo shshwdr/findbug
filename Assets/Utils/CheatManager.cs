@@ -27,5 +27,13 @@ public class CheatManager : Singleton<CheatManager>
                 BugManager.Instance.finishFixBug(i);
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            for (int i = 0; i < BugManager.Instance.fixedBugs.Length; i++)
+            {
+                BugManager.Instance.finishFixBug(i);
+            }
+        }
     }
 }

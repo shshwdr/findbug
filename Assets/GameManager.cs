@@ -2,9 +2,10 @@ using System;
 using Pool;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
-public enum GameState {Default,BattlePortalOn,BossPortalOn}
+public enum GameState {Default,BattlePortalOn,BossPortalOn,BossFailed}
 public class GameManager : Singleton<GameManager>
 {
     public BugablePlayer player;
@@ -12,6 +13,11 @@ public class GameManager : Singleton<GameManager>
     public GameState gameState;
 
     public GameObject battlePortal;
+    public GameObject bossPortal;
+    public GameObject ghostHelp;
+    
+    
+    
     void Start()
     {
         
@@ -33,13 +39,36 @@ public class GameManager : Singleton<GameManager>
         
         
         //if fixed enough bug, start dialogue to next portal
-        if (BugManager.Instance.fixedBugCount() > 5 && gameState == GameState.Default)
+        if (canUnlockBattle() && gameState == GameState.Default)
         {
             gameState = GameState.BattlePortalOn;
             DialogueManager.StartConversation("BattlePortal", null, null);
             battlePortal.gameObject.SetActive(true);
         }
+        
+        
+        if (canUnlockFinal() && gameState == GameState.BattlePortalOn)
+        {
+            gameState = GameState.BossPortalOn;
+            DialogueManager.StartConversation("BossPortal", null, null);
+            bossPortal.gameObject.SetActive(true);
+        }
     }
+
+    bool canUnlockBattle()
+    {
+        var hasNotFixed = CSVLoader.Instance.bugs.Where(x => x.unlockLevel == 1)
+            .Any(x => BugManager.Instance.fixedBugs[x.Id] != BugStatus.BugFixed);
+        return !hasNotFixed;
+    }
+
+    bool canUnlockFinal()
+    {
+        var hasNotFixed = CSVLoader.Instance.bugs.Where(x => x.unlockLevel == 2)
+            .Any(x => BugManager.Instance.fixedBugs[x.Id] != BugStatus.BugFixed);
+        return !hasNotFixed;
+    }
+    
     public void GetIntoFindBugMode()
     {
         isInFindBugMode = true;

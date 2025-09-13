@@ -11,6 +11,8 @@ public class BugInfo
     public string Hint;
     public string Reason;
     public string Title;
+    public int unlockLevel;
+    public int Id;
 }
 
 public class CSVLoader : Singleton<CSVLoader>

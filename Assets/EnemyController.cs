@@ -6,14 +6,15 @@ using UnityEngine.AI;
 
 public class EnemyController : HPCharacterController
 {
-    NavMeshAgent agent;
+    //NavMeshAgent agent;
 
-
+    public string roomName;
 
     public GameObject mergedToMonster;
+    
 
     public float invincibleSpeedScale = 0.3f;
-    float originSpeed;
+    public float originSpeed= 0.3f;
     SpriteRenderer m_Renderer;
     protected EnemyController mergingOther;
     public Animator deathAnimator;
@@ -26,9 +27,9 @@ public class EnemyController : HPCharacterController
     {
 
         //rb = GetComponent<Rigidbody2D>();
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
+        //agent = GetComponent<NavMeshAgent>();
+        //agent.updateRotation = false;
+        //agent.updateUpAxis = false;
         
 
        // EnemyManager.instance.enemiesDictionary[enemyType].Add(this);
@@ -37,7 +38,7 @@ public class EnemyController : HPCharacterController
         animator = transform.Find("test").GetComponentInChildren<Animator>();
         spriteObject = animator.transform.parent.gameObject;
         //EnemyManager.instance.updateEnemies();
-        originSpeed = agent.speed;
+        //originSpeed = agent.speed;
         m_Renderer = animator. GetComponent<SpriteRenderer>();
         offMergeDistance = GetComponent<CircleCollider2D>().radius * 2f;
 
@@ -56,14 +57,14 @@ public class EnemyController : HPCharacterController
     {
         if (isDead || GameManager.Instance.player.isDead)
         {
-            agent.isStopped = true;
+            //agent.isStopped = true;
             return;
         }
         base.Update();
         if (isStuned)
         {
-            agent.isStopped = true;
-            agent.velocity = Vector3.zero;
+            //agent.isStopped = true;
+            //agent.velocity = Vector3.zero;
             //return;
         }
 
@@ -77,21 +78,27 @@ public class EnemyController : HPCharacterController
             bool foundTarget = false;
             if (m_Renderer.isVisible)
             {
-                agent.speed = originSpeed;
+               // agent.speed = originSpeed;
             }
             else
             {
-                agent.speed = originSpeed * invincibleSpeedScale;
+                //agent.speed = originSpeed * invincibleSpeedScale;
 
                 shortestTarget = transform;
                 shortestDistance = float.MaxValue;
             }
             
             {
-                agent.isStopped = true;
+                //agent.isStopped = true;
             }
         }
-        animator.SetFloat("speed", agent.velocity.magnitude);
+        animator.SetFloat("speed", 1);
+
+        if (roomName == GameManager.Instance.player.GetComponent<BugablePlayer>().roomName)
+        {
+            //var target = GameManager.Instance.player.transform.position;
+           // transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * originSpeed);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)

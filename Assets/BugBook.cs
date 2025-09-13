@@ -11,6 +11,8 @@ public class BugBook : MonoBehaviour
 
     public Transform cellsParent;
     public GameObject menu;
+
+    public List<int> selectedBugs = new List<int>();
     
     
     public Image image;

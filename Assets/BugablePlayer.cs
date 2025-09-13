@@ -16,7 +16,13 @@ public class BugablePlayer : BugableObject
     {
         roomName = teleporter.targetRoomName;
         transform.position = teleporter.teleportTransform.position;
-        originPosition = teleporter.teleportTransform.position;
+        var room = teleporter.GetComponentInParent<Room>();
+        room.GetIntoRoom();
+
+        if (roomName != "boss")
+        {
+            originPosition = teleporter.teleportTransform.position;
+        }
     }
    void Awake()
     {

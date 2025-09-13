@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using PixelCrushers.DialogueSystem;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -48,6 +49,14 @@ public class PlayerHP : HPCharacterController
             {
                 HudController.Instance.ShowRestartButton();
             }
+        }
+
+        if (GetComponent<BugablePlayer>().roomName == "boss"&& GameManager.Instance.gameState != GameState.BossFailed)
+        {
+            DialogueManager.StartConversation("BossLose", null, null);
+            GameManager.Instance.gameState = GameState.BossFailed;
+            GetComponent<BugablePlayer>().OnRestart();
+            GameManager.Instance.ghostHelp.SetActive(true);
         }
     }
 }
