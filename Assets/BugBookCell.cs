@@ -12,7 +12,7 @@ public class BugBookCell : MonoBehaviour
     public void Init(int id)
     {
         this.id = id;
-        text.text = BugManager.Instance.fixedBugs[id] == BugStatus.BugFixed? BugManager.Instance.bugsDesc[id]:"???";
+        text.text = BugManager.Instance.fixedBugs[id] == BugStatus.BugFixed? CSVLoader.Instance.bugs[id].Title:"???";
     }
     // Start is called before the first frame update
     void Start()

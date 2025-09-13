@@ -3,17 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMove : HPCharacterController
+public class PlayerMove : MonoBehaviour
 {
 
     public Vector2 movement;
     public float moveSpeed = 5f;
+
+    private HPCharacterController controller;
     // Start is called before the first frame update
 
     
-    override protected void Update()
+     protected void Update()
     {
-        if (isDead)
+        if (controller.isDead)
         {
             //stopAttackAnim();
             return;
@@ -57,15 +59,15 @@ public class PlayerMove : HPCharacterController
 
     }
 
-    protected override void Awake()
+    protected void Awake()
     {
-        base.Awake();
-        spriteObject = GetComponentInChildren<SpriteRenderer>().gameObject;
+        controller = GetComponent<HPCharacterController>();
+        controller. spriteObject = GetComponentInChildren<SpriteRenderer>().gameObject;
     }
 
     private void LateUpdate()
     {
-        if (isDead)
+        if (controller.isDead)
         {
             return;
         }
@@ -73,8 +75,8 @@ public class PlayerMove : HPCharacterController
         {
             return;
         }
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-        testFlip(movement);
+        controller.rb.MovePosition(controller.rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        controller.testFlip(movement);
         // rb.velocity = new Vector2(movement.x * moveSpeed, movement.y * moveSpeed);
     }
 }

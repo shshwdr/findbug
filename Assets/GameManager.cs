@@ -1,3 +1,4 @@
+using System;
 using Pool;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,12 @@ public class GameManager : Singleton<GameManager>
         player = GameObject.FindObjectOfType<BugablePlayer>();
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
     }
+
+    private void Awake()
+    {
+        CSVLoader.Instance.Init();
+    }
+
     void OnBugFixed(int id)
     {
         GetIntoPlayMode();

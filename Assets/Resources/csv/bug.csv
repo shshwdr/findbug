@@ -1,0 +1,13 @@
+﻿Identifier,Title,Desc,Hint,Reason
+WallCollider,Wall Collider,Walls have no collider,"Leave the room through the wall, click ""Found It!"" button, click the wall",Developer forgot to add collider on the wall
+PlayerRotate,Player Rotate,Player rotate when collide with wall,"Move to the wall and walk along the wall, player would rotate incorrectly, click ""Found It!"" and click player",Rotation restriction is not added on player
+DoorCollider,Door Collider,Door has no collider,"Leave the room through the door, click ""Found It!"" button, click the player",Developer forgot to add collider on the door
+FlowersShow,Flowers Sort Order,Flowers show on top of player,"In town, walk on the flowers the flowers would show on top of player, click on player",Sorting order of the flower is higher than player
+PlayerDialogue,Dialogue,Player can move while in dialogue,"In town, walk while talking to the villager, click on player",Player movement should be disable in dialogue
+Chest,Chest,Chest can be opened more than once,"In town, open chest multiple times, click on the extra sword you get",
+ManyInventory,Too Many Inventory,Player get too many inventory,7,
+InventoryOutBound,Inventory Usage Bound,Player use inventory that does not exist,8,
+Heals more HP,Too Much HP,Apple heals more than max hp,9,
+DontDie,Don't Die,Player's hp gets to 0 but still alive,10,
+StoneInfiniteAttack,Stone Infinite Attack,Stone keeps attacking player for too many times,11,
+BothEquipment,Both Equipment,Player can equip both equipment,12,

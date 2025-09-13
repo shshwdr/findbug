@@ -23,7 +23,7 @@ public class HPCharacterController : MonoBehaviour
     public bool hasInvinsibleTime;
     public float invinsibleTime = 0.3f;
     float currentInvinsibleTimer;
-    protected GameObject spriteObject;
+    public GameObject spriteObject;
     // Start is called before the first frame update
     virtual protected void Awake()
     {

@@ -15,11 +15,7 @@ public class EnemyBullet : MonoBehaviour
     private bool isHitPlayer = false;
     private void Update()
     {
-        if (isHitPlayer)
-        {
-            BugManager.Instance.fixedBugs[10] = BugStatus.BugTriggered;
-            FindObjectOfType<PlayerHP>().getDamage();
-        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -44,6 +40,31 @@ public class EnemyBullet : MonoBehaviour
         // }
         Destroy(gameObject);
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (BugManager.Instance.fixedBugs[10] != BugStatus.BugFixed)
+        {
+            if (collision.GetComponent<PlayerHP>())
+            {
+                if (BugManager.Instance.fixedBugs[10] == BugStatus.BugDefault)
+                {
+                    BugManager.Instance.fixedBugs[10] = BugStatus.BugTriggered;
+                }
+                collision.GetComponent<PlayerHP>().getDamage();
+            }
+
+            if (collision.GetComponentInParent<PlayerHP>())
+            {
+                if (BugManager.Instance.fixedBugs[10] == BugStatus.BugDefault)
+                {
+                    BugManager.Instance.fixedBugs[10] = BugStatus.BugTriggered;
+                }
+                collision.GetComponentInParent<PlayerHP>().getDamage();
+            }
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.GetComponent<PlayerHP>())

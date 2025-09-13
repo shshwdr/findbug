@@ -5,21 +5,6 @@ using UnityEngine;
 public enum BugStatus  { BugDefault, BugTriggered, BugWillBeFixed,BugFixed};
 public class BugManager : Singleton<BugManager>
 {
-    public List<string> bugsDesc = new List<string>()
-    {
-        "Walls have no collider",
-        "Player rotate when collide with wall",
-        "Door has no collider",
-        "Flowers show on top of player",
-        "Player can move while in dialogue",
-        "Chest can be opened more than once",
-        "Player get too many inventory",
-        "Player use inventory that does not exist",
-        "Apple heals more than max hp",
-        "Player's hp gets to 0 but still alive",
-        "Stone keeps attacking player for too many times",
-        "Player can equip both equipment",
-    };
     
     //0 not triggered
     //1 triggered

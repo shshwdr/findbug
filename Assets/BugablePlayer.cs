@@ -10,6 +10,7 @@ public class BugablePlayer : BugableObject
     CircleCollider2D trigger;
     Vector3 originPosition;
     public string roomName = "room";
+    private HPCharacterController controller;
     public bool isDead => GetComponent<HPCharacterController>().isDead;
     public void teleport(Teleporter teleporter)
     {
@@ -23,6 +24,7 @@ public class BugablePlayer : BugableObject
         trigger = GetComponent<CircleCollider2D>();
         collider.isTrigger = true;
         originPosition = transform.position;
+        controller = GetComponent<HPCharacterController>();
     }
     // Start is called before the first frame update
     void Start()
@@ -47,10 +49,11 @@ public class BugablePlayer : BugableObject
 
     public void OnRestart()
     {
-        
+        GetComponent<PlayerHP>().Reset();
+        GetComponent<HPCharacterController>().isDead = false;
+        controller.animator.SetTrigger("reset");
         transform.rotation = Quaternion.identity;
         transform.position = originPosition;
-        GetComponent<PlayerHP>().Reset();
     }
 
     // Update is called once per frame
