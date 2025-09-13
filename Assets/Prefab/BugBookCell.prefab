@@ -189,6 +189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 5212653566148273926}
   id: 0
+  bugButton: {fileID: 83461063107609846}
+  bugButtonSelected: {fileID: 8960355838373916974}
 --- !u!222 &3875608125463502016
 CanvasRenderer:
   m_ObjectHideFlags: 0

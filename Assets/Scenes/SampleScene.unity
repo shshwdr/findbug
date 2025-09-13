@@ -22823,8 +22823,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -72832,6 +72832,7 @@ MonoBehaviour:
   button: {fileID: 941731388}
   cellsParent: {fileID: 2071667466}
   menu: {fileID: 2071667465}
+  selectedBugs: 
   image: {fileID: 671802903}
   deatilTitle: {fileID: 1760147272}
   deatilDesc: {fileID: 1919779627}
@@ -77282,6 +77283,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1168499769}
+  - component: {fileID: 1168499771}
+  - component: {fileID: 1168499770}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
@@ -77310,6 +77313,44 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1168499770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168499768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.34901962}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1168499771
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1168499768}
+  m_CullTransparentMesh: 1
 --- !u!1 &1178497863
 GameObject:
   m_ObjectHideFlags: 0
@@ -77676,7 +77717,8 @@ MonoBehaviour:
   isInFindBugMode: 0
   gameState: 0
   battlePortal: {fileID: 1156667165}
-  bossPortal: {fileID: 0}
+  bossPortal: {fileID: 1976313426}
+  ghostHelp: {fileID: 1046785698}
 --- !u!4 &1190166453
 Transform:
   m_ObjectHideFlags: 0
@@ -99907,8 +99949,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -103513,6 +103555,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BugBookCell (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 672651249406478106, guid: 2b363538bcfb5504698be7130b709edd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5162330627876114813, guid: 2b363538bcfb5504698be7130b709edd, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -103527,7 +103573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5162330627876114813, guid: 2b363538bcfb5504698be7130b709edd, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5162330627876114813, guid: 2b363538bcfb5504698be7130b709edd, type: 3}
       propertyPath: m_AnchorMin.x
@@ -103535,7 +103581,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5162330627876114813, guid: 2b363538bcfb5504698be7130b709edd, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5162330627876114813, guid: 2b363538bcfb5504698be7130b709edd, type: 3}
       propertyPath: m_SizeDelta.x
@@ -103575,11 +103621,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5162330627876114813, guid: 2b363538bcfb5504698be7130b709edd, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5162330627876114813, guid: 2b363538bcfb5504698be7130b709edd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -433.92856
       objectReference: {fileID: 0}
     - target: {fileID: 5162330627876114813, guid: 2b363538bcfb5504698be7130b709edd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -121217,8 +121263,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 28
+  m_fontSizeBase: 28
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -122908,7 +122954,7 @@ RectTransform:
   m_GameObject: {fileID: 2071667465}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 55904519}
@@ -122933,7 +122979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
+  m_Color: {r: 0.41342196, g: 0.49685526, b: 0.2734266, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

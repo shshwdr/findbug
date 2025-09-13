@@ -10,6 +10,7 @@ public class BugBookCell : MonoBehaviour
 
     public int id;
     public Button bugButton;
+    public GameObject bugButtonSelected;
 
     public void Init(int id)
     {

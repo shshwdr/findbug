@@ -62,6 +62,27 @@ public class BugBook : MonoBehaviour
             {
                 UpdateDetailMenu(tempi);
             });
+            
+            cells[i].bugButton.onClick.AddListener(() =>
+            {
+                if (selectedBugs.Contains(tempi))
+                {
+                    cells[i].bugButtonSelected .SetActive(false);
+                    selectedBugs.Remove(tempi);
+                }
+                else
+                {
+                    if (selectedBugs.Count >= 3)
+                    {
+                        FindObjectOfType<PopupMenu>().Show("You can only use 3 bugs");
+                    }
+                    else
+                    {
+                        cells[i].bugButtonSelected.SetActive(true);
+                        selectedBugs.Add(tempi);
+                    }
+                }
+            });
         }
         UpdateDetailMenu(0);
         Hide();
@@ -74,8 +95,8 @@ public class BugBook : MonoBehaviour
             
             deatilTitle.text = CSVLoader.Instance.bugs[i].Title;
             deatilDesc.text = CSVLoader.Instance.bugs[i].Desc;
-            deatilHint.text = CSVLoader.Instance.bugs[i].Hint;
-            deatilReason.text = CSVLoader.Instance.bugs[i].Reason;
+            deatilHint.text = "How to Repro: "+CSVLoader.Instance.bugs[i].Hint;
+            deatilReason.text = "Root Reason: "+CSVLoader.Instance.bugs[i].Reason;
         }
     }
 
