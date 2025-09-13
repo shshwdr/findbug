@@ -46,7 +46,7 @@ public class PlayerMeleeAttack : MonoBehaviour
     //
     // }
 
-    void Attack()
+    public void Attack()
     {
         currentCooldownTimer = 0;
 

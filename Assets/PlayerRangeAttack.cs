@@ -1,10 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyRangeAttack : MonoBehaviour
+public class PlayerRangeAttack : MonoBehaviour
 {
-    
     public GameObject bulletPrefab;
     public float cooldownTime = 2f;
     public float bulletSpeed = 10f;
@@ -21,6 +20,7 @@ public class EnemyRangeAttack : MonoBehaviour
     public void Attack()
     {
         var player = GameManager.Instance.player;
+        dir = player.GetComponent<PlayerMove>().facing;
         //var dir = player.transform.position - transform.position;
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         var quat = Quaternion.AngleAxis(angle, Vector3.forward);
@@ -36,11 +36,12 @@ public class EnemyRangeAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!enemyController.isStuned){
-            currentCooldownTimer += Time.deltaTime;
-            if (currentCooldownTimer > cooldownTime)
+        
+        currentCooldownTimer += Time.deltaTime;
+        if (currentCooldownTimer >=  cooldownTime)
+        {
+            if (Input.GetKeyDown(KeyCode.C))
             {
-                currentCooldownTimer = 0;
                 Attack();
             }
         }

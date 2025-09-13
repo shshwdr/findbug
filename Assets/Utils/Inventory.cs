@@ -157,8 +157,11 @@ public class Inventory : Singleton<Inventory>
         Debug.Log("use " + itemName);
         switch (itemName) {
             case "sword":
+                FindObjectOfType<PlayerMeleeAttack>().Attack();
                 
-                
+                break;
+            case "stoneGenerator": 
+                FindObjectOfType<PlayerRangeAttack>().Attack();
                 break;
             case "apple":
 
