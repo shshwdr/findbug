@@ -52,18 +52,19 @@ public class PlayerMeleeAttack : MonoBehaviour
 
         //playerController.attackAnim();
         var movement = GetComponent<PlayerMove>().movement;
+        var facing = GetComponent<PlayerMove>().facing;
 
         
         animator.SetBool("attack", true);
         animator.SetFloat("attackHorizontal", movement.x);
 
-        animator.SetFloat("attackVertical", movement.y);
+        animator.SetFloat("attackVertical", 0);
         
         
         AudioManager.Instance.playPlayerAttack();
         
         //check a fan shape in front of player and see if there is enemy in the fan shape
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, attackRange);
         List<GameObject> enemiesInAttackRange = new List<GameObject>();
 
         foreach (var hitCollider in hitColliders)
@@ -71,7 +72,7 @@ public class PlayerMeleeAttack : MonoBehaviour
             if (hitCollider.gameObject.CompareTag("Enemy")) // 检查标签是否为“Enemy”
             {
                 Vector3 directionToTarget = (hitCollider.transform.position - transform.position).normalized;
-                float angleToTarget = Vector3.Angle(movement, directionToTarget);
+                float angleToTarget = Vector3.Angle(facing, directionToTarget);
 
                 if (angleToTarget < attackAngle / 2) // 检查是否在扇形区域内
                 {

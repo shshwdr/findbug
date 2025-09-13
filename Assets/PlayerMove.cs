@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour
 {
 
     public Vector2 movement;
+    public Vector2 facing;
     public float moveSpeed = 5f;
 
     private HPCharacterController controller;
@@ -50,6 +51,14 @@ public class PlayerMove : MonoBehaviour
             {
                 BugManager.Instance.triggerBug(4);
             }
+        }
+
+        if (movement.x > 0.1f)
+        {
+            facing = new Vector2(1,0);
+        }else if (movement.x < -0.1f)
+        {
+            facing = new Vector2(-1,0);
         }
         //animator.SetFloat("speed", movement.sqrMagnitude);
 

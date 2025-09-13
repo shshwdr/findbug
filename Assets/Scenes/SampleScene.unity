@@ -3588,7 +3588,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1160010366554915182, guid: e5e96888fbe6dfe4f9e3c9658116a7cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -49599,7 +49599,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1160010366554915182, guid: e5e96888fbe6dfe4f9e3c9658116a7cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -49834,6 +49834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movement: {x: 0, y: 0}
+  facing: {x: 0, y: 0}
   moveSpeed: 1
 --- !u!70 &1179554738
 CapsuleCollider2D:
@@ -49993,8 +49994,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 0.2
-  attackRange: 1
-  attackAngle: 90
+  attackRange: 0.2
+  attackAngle: 180
 --- !u!1 &1190166451
 GameObject:
   m_ObjectHideFlags: 0
@@ -77569,7 +77570,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1160010366554915182, guid: e5e96888fbe6dfe4f9e3c9658116a7cf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
