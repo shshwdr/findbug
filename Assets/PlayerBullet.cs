@@ -28,6 +28,8 @@ public class PlyaerBullet : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+
+            return;
         }
         else if (ignoreOtherCollider)
         {
@@ -84,6 +86,11 @@ public class PlyaerBullet : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+        else if(!collision.GetComponent<PlayerHP>() && collision. GetComponentInParent<PlayerHP>())
+        {
+            
+            Destroy(gameObject);
         }
     }
 }

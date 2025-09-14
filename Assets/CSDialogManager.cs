@@ -9,7 +9,7 @@ public class CSDialogManager : Singleton<CSDialogManager>
     public Dictionary<string, bool> finishedDialogue = new Dictionary<string, bool>();
     public bool isInBuggyDialogue;
 
-    private string lastDialogue;
+    public string lastDialogue;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +35,7 @@ public class CSDialogManager : Singleton<CSDialogManager>
     {
         FindObjectOfType<HudController>().hud.SetActive(false);
         
-        if(DialogueManager.lastConversationStarted == "NPCInTown" && BugManager.Instance.fixedBugs[4] != BugStatus.BugFixed)
+        if(BugManager.Instance.fixedBugs[4] != BugStatus.BugFixed)
         {
             isInBuggyDialogue = true;
         }
@@ -60,6 +60,17 @@ public class CSDialogManager : Singleton<CSDialogManager>
         {
             FindObjectOfType<BugablePlayer>().OnRestart();
         }
+
+        if (lastDialogue == "BossWin")
+        {
+            GameManager.Instance.voidPortal.SetActive(true);
+        }
+        
+        if (lastDialogue == "BossInvincible")
+        {
+            FindObjectOfType<Boss>().SetInvincible();
+        }
+
 
         lastDialogue = "";
     }

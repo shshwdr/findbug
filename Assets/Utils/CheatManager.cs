@@ -35,5 +35,11 @@ public class CheatManager : Singleton<CheatManager>
                 BugManager.Instance.finishFixBug(i);
             }
         }
+        
+        
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            GameManager.Instance.gameState = GameState.TalkedToGhost;
+        }
     }
 }

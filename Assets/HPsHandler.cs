@@ -55,13 +55,13 @@ public class HPsHandler : MonoBehaviour
             hp.setValue(0);
         }
 
-        if (BugManager.Instance.fixedBugs[8] == BugStatus.BugFixed)
-        {
-            for (int i = 3; i < hps.Count; i++)
-            {
-                hps[i].gameObject.SetActive(false);
-            }
-        }
+        // if (BugManager.Instance.fixedBugs[8] == BugStatus.BugFixed)
+        // {
+        //     for (int i = 3; i < hps.Count; i++)
+        //     {
+        //         hps[i].gameObject.SetActive(false);
+        //     }
+        // }
         while (value > 0)
         {
             int tempValue = math.min(value, 2);

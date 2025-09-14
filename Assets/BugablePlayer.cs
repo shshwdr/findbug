@@ -74,6 +74,15 @@ public class BugablePlayer : BugableObject
         {
             roomName = "battle";
         }
+
+        foreach (var room in FindObjectsOfType<Room>())
+        {
+            if (room.name == roomName)
+            {
+                room.GetIntoRoom();
+            }
+        }
+        
         transform.rotation = Quaternion.identity;
         transform.position = originPosition;
         FindObjectOfType<HudController>().

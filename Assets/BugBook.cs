@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class BugBook : MonoBehaviour
 {
+    public Button closeButton;
     BugBookCell[] cells;
     public Button button;
 
@@ -41,6 +42,10 @@ public class BugBook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        closeButton.onClick.AddListener(() =>
+        {
+            Hide();
+        });
         cells = cellsParent.GetComponentsInChildren<BugBookCell>(true);
         button.onClick.AddListener(() =>
         {
@@ -67,8 +72,8 @@ public class BugBook : MonoBehaviour
             {
                 if (selectedBugs.Contains(tempi))
                 {
-                    BugManager.Instance.GetBugFixedAgain(i);
-                    cells[i].bugButtonSelected .SetActive(false);
+                    BugManager.Instance.GetBugFixedAgain(tempi);
+                    cells[tempi].bugButtonSelected .SetActive(false);
                     selectedBugs.Remove(tempi);
                 }
                 else
@@ -79,8 +84,8 @@ public class BugBook : MonoBehaviour
                     }
                     else
                     {
-                        BugManager.Instance.GetBugBack(i);
-                        cells[i].bugButtonSelected.SetActive(true);
+                        BugManager.Instance.GetBugBack(tempi);
+                        cells[tempi].bugButtonSelected.SetActive(true);
                         selectedBugs.Add(tempi);
                     }
                 }

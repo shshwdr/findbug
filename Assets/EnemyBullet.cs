@@ -28,6 +28,7 @@ public class EnemyBullet : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+            return;
         }
         else if (ignoreOtherCollider)
         {
@@ -84,6 +85,11 @@ public class EnemyBullet : MonoBehaviour
             {
                 Destroy(gameObject);
             }
+        }
+        else
+        {
+            
+            Destroy(gameObject);
         }
     }
 }

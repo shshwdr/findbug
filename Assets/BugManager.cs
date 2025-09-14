@@ -101,13 +101,14 @@ public class BugManager : Singleton<BugManager>
 
     public void GetBugBack(int i)
     {
-        finishFixBug(i);
+        
+        fixedBugs[i] = BugStatus.BugBack;
+        
+        EventPool.Trigger<int>(EventPool.bugBack, i);
     }
 
     public void GetBugFixedAgain(int i)
     {
-        fixedBugs[i] = BugStatus.BugBack;
-        
-        EventPool.Trigger<int>(EventPool.bugBack, i);
+        finishFixBug(i);
     }
 }

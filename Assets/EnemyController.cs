@@ -11,7 +11,6 @@ public class EnemyController : HPCharacterController
     public string roomName;
 
     public GameObject mergedToMonster;
-    
 
     public float invincibleSpeedScale = 0.3f;
     public float originSpeed= 0.3f;
@@ -42,6 +41,8 @@ public class EnemyController : HPCharacterController
         m_Renderer = animator. GetComponent<SpriteRenderer>();
         offMergeDistance = GetComponent<CircleCollider2D>().radius * 2f;
 
+        
+        
        
     }
 
@@ -60,6 +61,12 @@ public class EnemyController : HPCharacterController
             //agent.isStopped = true;
             return;
         }
+        
+        if (CSDialogManager.Instance.isInDialogue || CSDialogManager.Instance.isInBuggyDialogue)
+        {
+            return;
+        }
+        
         base.Update();
         if (isStuned)
         {
@@ -108,12 +115,40 @@ public class EnemyController : HPCharacterController
         //    collision.GetComponent<PlayerController>().getDamage();
         //}
     }
+
+    public override void getDamage(int damage = 1)
+    {
+        base.getDamage(damage);
+        
+        if (roomName == "boss" && currentHP <=2)
+        {
+            CSDialogManager.Instance.lastDialogue = "BossInvincible";
+            //isInvincible = true;
+            foreach (var bullet in FindObjectsOfType<PlyaerBullet>())
+            {
+                Destroy(bullet.gameObject);
+            }
+            DialogueManager.StartConversation("bossInvincible");
+        }
+    }
+
     protected override void Die()
     {
         base.Die();
+
+        if (roomName == "boss")
+        {
+            
+        }
+        
         animator.SetTrigger("die");
         //deathAnimator.enabled = true;
         Destroy(gameObject, 0.3f);
+
+        if (GetComponent<Boss>())
+        {
+            CSDialogManager.Instance.StartConversation("BossWin");
+        }
     }
 
 }

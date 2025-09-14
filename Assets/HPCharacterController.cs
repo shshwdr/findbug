@@ -24,12 +24,18 @@ public class HPCharacterController : MonoBehaviour
     public float invinsibleTime = 0.3f;
     float currentInvinsibleTimer;
     public GameObject spriteObject;
+    
+    public bool isInvincible = false;
     // Start is called before the first frame update
     virtual protected void Awake()
     {
 
         hpBar = GetComponentInChildren<HPsHandler>();
         rb = GetComponent<Rigidbody2D>();
+        if (hpBar)
+        {
+            hpBar.SetHP(currentHP);
+        }
     }
     // Update is called once per frame
     virtual protected void Update()
@@ -55,9 +61,14 @@ public class HPCharacterController : MonoBehaviour
     {
 
     }
-    public void getDamage(int damage = 1)
+    public virtual void getDamage(int damage = 1)
     {
         if (isDead)
+        {
+            return;
+        }
+
+        if (isInvincible)
         {
             return;
         }

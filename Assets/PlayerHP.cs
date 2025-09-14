@@ -49,15 +49,16 @@ public class PlayerHP : HPCharacterController
             {
                 HudController.Instance.ShowRestartButton();
             }
+            
+            if (GetComponent<BugablePlayer>().roomName == "boss"&& GameManager.Instance.gameState != GameState.BossFailed)
+            {
+                var dialogueName = "BossLose";
+                GameManager.Instance.startDialogue(dialogueName);
+                CSDialogManager.Instance.StartConversation(dialogueName, null, null);
+                GameManager.Instance.gameState = GameState.BossFailed;
+                GameManager.Instance.ghostHelp.SetActive(true);
+            }
         }
 
-        if (GetComponent<BugablePlayer>().roomName == "boss"&& GameManager.Instance.gameState != GameState.BossFailed)
-        {
-            var dialogueName = "BossLose";
-            GameManager.Instance.startDialogue(dialogueName);
-            CSDialogManager.Instance.StartConversation(dialogueName, null, null);
-            GameManager.Instance.gameState = GameState.BossFailed;
-            GameManager.Instance.ghostHelp.SetActive(true);
-        }
     }
 }
