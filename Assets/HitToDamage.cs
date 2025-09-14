@@ -8,10 +8,12 @@ public class HitToDamage : MonoBehaviour
     {
         if (collision.GetComponent<PlayerHP>())
         {
+            SFXManager.Instance.PlaySFX("roarbite");
             collision.GetComponent<PlayerHP>().getDamage();
         }
         else if (collision. GetComponentInParent<PlayerHP>())
         {
+            SFXManager.Instance.PlaySFX("roarbite");
             collision.GetComponentInParent<PlayerHP>().getDamage();
         }
     }
@@ -22,7 +24,6 @@ public class HitToDamage : MonoBehaviour
         //if (BugManager.Instance.fixedBugs[10] != BugStatus.BugFixed)
         {
             
-            SFXManager.Instance.PlaySFX("roarbite");
             if (collision.GetComponent<PlayerHP>())
             {
                 collision.GetComponent<PlayerHP>().getDamage();

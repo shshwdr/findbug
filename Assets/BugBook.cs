@@ -100,7 +100,7 @@ public class BugBook : MonoBehaviour
 
     void UpdateDetailMenu(int i)
     {
-        if (BugManager.Instance.fixedBugs[i] == BugStatus.BugFixed)
+        if (BugManager.Instance.fixedBugs[i] == BugStatus.BugFixed || BugManager.Instance.fixedBugs[i] == BugStatus.BugBack)
         {
             
             deatilTitle.text = CSVLoader.Instance.bugs[i].Title;

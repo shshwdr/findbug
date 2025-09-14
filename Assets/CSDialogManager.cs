@@ -26,7 +26,7 @@ public class CSDialogManager : Singleton<CSDialogManager>
     {
         if (!CSDialogManager.Instance.finishedDialogue.ContainsKey(dialogname))
         {
-            
+            isInDialogue = true;
             FindObjectOfType<HudController>().hud.SetActive(false);
             SFXManager.Instance.PlayOpenMenu();
             lastDialogue = dialogname;

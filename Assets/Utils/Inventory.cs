@@ -85,8 +85,17 @@ public class Inventory : Singleton<Inventory>
         SFXManager.Instance.PlaySFX("openchest");
         if (checkMaxCount && itemList.Count >= maxCount)
         {
+            
+            
             DialogueManager.ShowAlert("Your bag is full");
-            return;
+            if (itemName != "apple")
+            {
+                itemList.Remove("apple");
+            }
+            else
+            {
+                return;
+            }
         }
         startInventory = true;
         itemList.Add(itemName);
@@ -127,9 +136,9 @@ public class Inventory : Singleton<Inventory>
                 var t = itemList[0];
                 itemList[0] = itemList[swordId];
                 itemList[swordId] = t;
+                itemList.RemoveRange(maxCount, itemList.Count - maxCount);
             }
 
-            itemList.RemoveRange(maxCount, itemList.Count - maxCount);
             EventPool.Trigger("inventoryChanged");
             return;
         }

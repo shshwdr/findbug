@@ -123,7 +123,7 @@ public class EnemyController : HPCharacterController
         if (roomName == "boss" && currentHP <=2)
         {
             CSDialogManager.Instance.lastDialogue = "BossInvincible";
-            //isInvincible = true;
+            isInvincible = true;
             foreach (var bullet in FindObjectsOfType<PlyaerBullet>())
             {
                 Destroy(bullet.gameObject);
@@ -150,7 +150,7 @@ public class EnemyController : HPCharacterController
             CSDialogManager.Instance.StartConversation("BossWin");
         }
 
-        if (GetComponent<EnemyRangeAttack>() && Inventory.Instance.itemList.Contains("stoneGenerator"))
+        if (GetComponent<EnemyRangeAttack>() && !Inventory.Instance.itemList.Contains("stoneGenerator"))
         {
             Inventory.Instance.addItem("stoneGenerator");
         }

@@ -20,7 +20,10 @@ public class BugablePlayer : BugableObject
         
         
         var room = teleporter.teleportTransform.GetComponentInParent<Room>();
-        room.GetIntoRoom();
+        if (room)
+        {
+            room.GetIntoRoom();
+        }
 
         if (roomName != "boss")
         {

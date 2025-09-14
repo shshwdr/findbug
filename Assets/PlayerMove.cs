@@ -47,6 +47,10 @@ public class PlayerMove : MonoBehaviour
         movement = Vector2.ClampMagnitude(movement, 1);
         if (movement.magnitude > 0.1f)
         {
+            if (FindObjectOfType<Boss>() && CSDialogManager.Instance.isInBuggyDialogue)
+            {
+                FindObjectOfType<Boss>().GetComponent<EnemyController>().isInvincible = false;
+            }
              if (CSDialogManager.Instance.isInBuggyDialogue)
             {
                 BugManager.Instance.triggerBug (4);

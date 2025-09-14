@@ -85,7 +85,7 @@ public class HudController : Singleton<HudController>
             }
             else
             {
-                hintText = $"Next hint in {hintTime.ToString("0")} seconds";
+                hintText = $"Next hint in {hintTimer.ToString("0")} seconds";
             }
 
             FindObjectOfType<PopupMenu>().Show(hintText);
@@ -153,7 +153,7 @@ public class HudController : Singleton<HudController>
         //hintTimeLabel.text = hintTimer > 0 ? $"Next hint in {hintTime.ToString("0")} seconds" : "";
         if (hintTimer > 0)
         {
-            hintButton.GetComponentInChildren<TMP_Text>().text = $"HINT({ hintTime.ToString("0")})";
+            hintButton.GetComponentInChildren<TMP_Text>().text = $"HINT({ hintTimer.ToString("0")})";
         }
         else
         {

@@ -47,12 +47,12 @@ public class PlayerHP : HPCharacterController
             
             SFXManager.Instance.PlaySFX("playerdie");
             animator.SetTrigger("die");
-            if (BugManager.Instance.fixedBugs[10] == BugStatus.BugFixed)
+            if (BugManager.Instance.fixedBugs[10] == BugStatus.BugFixed || (int)GameManager.Instance.gameState>=(int)GameState.BossFailed)
             {
                 HudController.Instance.ShowRestartButton();
             }
             
-            if (GetComponent<BugablePlayer>().roomName == "boss"&& GameManager.Instance.gameState != GameState.BossFailed)
+            if (GetComponent<BugablePlayer>().roomName == "boss"&&(int) GameManager.Instance.gameState < (int)GameState.BossFailed)
             {
                 var dialogueName = "BossLose";
                 GameManager.Instance.startDialogue(dialogueName);

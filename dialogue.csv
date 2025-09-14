@@ -1,0 +1,226 @@
+﻿Database,find a bug
+Author,
+Version,
+Description,
+
+---Actors---
+Name,Description
+Player,
+Developer,
+Bug,
+Villager,
+Boss,
+
+---Conversations---
+
+Conversation 1,welcome
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_1_1,Developer,,"Hi I'm flevedo, a game developer."
+Developer_1_2,Developer,,You must be the volunteer tester for the game! Thank you for helping me!
+Developer_1_3,Developer,,"It's ok if you are new to be a tester, I'm a noob developer so there will be lots of bugs in the game that you won't miss!"
+Developer_1_4,Developer,,(Not that I'm proud of...)
+Developer_1_5,Developer,,"In short, I'm making an RPG game, and I just created a room as a start. You can walk around while I develop other stuff."
+Developer_1_6,Developer,,See if you can find some bugs now!
+
+Conversation 2,triggerWallBug
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_2_1,Developer,,It looks like you can walk to some place that you should not.
+Developer_2_2,Developer,,It's time to report this bug to me!
+Developer_2_3,Developer,,"Tap the button on the top, then tap on the place that is buggy!"
+
+Conversation 3,fixWallBug
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_3_1,Developer,,Great you learned fast!
+Developer_3_2,Developer,,I forgot to add the wall's collider.. on purpose!
+Developer_3_3,Developer,,I'll fix that now and restart the game. Please test if it is fixed.. and if other bugs introduced by this change!
+
+Conversation 4,buggableWall
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_4_1,Developer,,The wall in the room. It looks fine... for now :)
+
+Conversation 5,buggablePlayer
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_5_1,Developer,,This is you. It looks normal to me.
+
+Conversation 6,fixRotationOnCollide
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_6_1,Developer,,W--What?? Why are you rotating like this lol!
+Developer_6_2,Developer,,...Oh I have an idea why. Oop sorry I should freeze the rotation of you.
+Developer_6_3,Developer,,The world must look funny when you can rotate like this.
+Developer_6_4,Developer,,I'll fix it! But hey! at least the collider works now!
+Developer_6_5,Developer,,You now know what you need to do. I'll create a door for you and you can explore other places I created.
+Developer_6_6,Developer,,"press ""Space"" while next to the door to leave the room."
+Developer_6_7,Developer,,Enjoy and report bugs to me any time!
+
+Conversation 7,MetBugNPC
+Description,
+entrytag,Actor,Description,Dialogue Text
+Bug_7_1,Bug,,!
+Bug_7_2,Bug,,Are you the new tester?
+Bug_7_3,Bug,,Please don't report me...
+Bug_7_4,Bug,,Thanks... See you later :)
+
+Conversation 8,fixDoorBug
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_8_1,Developer,,Wait you are out of room.. again!
+Developer_8_2,Developer,,How can I forget to add the collider back when I remove the wall.. Silly me.
+Developer_8_3,Developer,,Thanks for report this to me!
+
+Conversation 9,buggableDoor
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_9_1,Developer,,You can leave the room through the door now.
+
+Conversation 10,fixFlowerBug
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_10_1,Developer,,"These are some flowers, beautiful right?"
+Developer_10_2,Developer,,They look normal...... No!
+Developer_10_3,Developer,,Wait why are they on top of you? I must forget to set the sort priority of them. Wait a sec I'll fix this!
+
+Conversation 11,buggableFlower
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_11_1,Developer,,"These are some flowers, beautiful right?"
+
+Conversation 12,NPCInTown
+Description,
+entrytag,Actor,Description,Dialogue Text
+Villager_12_1,Villager,,You are awake! Today is your day to start your adventure!
+Villager_12_2,Villager,,"I've prepared some gift for you in the chest, make sure to take and equip them before you go into the forest!"
+Villager_12_3,Villager,,It's you again! Do you want to hear some experience I have when I was an adventure?
+Villager_12_4,Villager,,It's a long story... No I'll not waste your time.
+Villager_12_5,Villager,,You young child need to explore yourself.
+Villager_12_6,Villager,,Even I tell the stories you will get bored soon and walk away.
+
+Conversation 13,
+Description,
+entrytag,Actor,Description,Dialogue Text
+
+Conversation 14,moveInDialogue
+Description,"You are talking to the villager, looks right...?"
+entrytag,Actor,Description,Dialogue Text
+Developer_14_1,Developer,,"You are talking to the villager, looks right...?"
+Developer_14_2,Developer,,Wait why you move while talking to others?
+Developer_14_3,Developer,,That's very impolite!
+Developer_14_4,Developer,,...Ok fine it's still my fault I'll stop you from moving while talking.
+
+Conversation 15,chestMultiTime
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_15_1,Developer,,Why do you have two swords?
+Developer_15_2,Developer,,Oh you opened the chest twice? Sounds like a serious bug!
+Developer_15_3,Developer,,"Phew glad I haven't made shop yet, you can earn lots of money buy getting lots of items this way haha.."
+
+Conversation 16,tooManyInventory
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_16_1,Developer,,This inventory item shows up in a place it should not show...
+Developer_16_2,Developer,,I might need to add a limitation on how many items you can hold.
+Developer_16_3,Developer,,A good bug! Thanks!
+
+Conversation 17,tooMuchHP
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_17_1,Developer,,Why you have more hp than initial? 
+Developer_17_2,Developer,,"I'll reset it, just incase one day you get infinite hp by eating apples.."
+
+Conversation 18,playerHpBar
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_18_1,Developer,,"This is your hp bar, shows how much hp you have"
+
+Conversation 19,killedButStillAlive
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_19_1,Developer,,"This is your hp bar, it is 0 now, but why your still alive???"
+Developer_19_2,Developer,,"Oh, ouch, I forgot to add the dead logic... Try it again! I promise you will die!"
+Developer_19_3,Developer,,"Uh.. Die in game, I mean, not real die..."
+
+Conversation 20,useItemNotExisted
+Description,useItemNotExisted
+entrytag,Actor,Description,Dialogue Text
+Developer_20_1,Developer,,Uhh what is this? an error?
+Developer_20_2,Developer,,Ohh! I see! You are trying to use an item that does not exist!
+Developer_20_3,Developer,,"A Smart bug! It would actually break the game.. but no worries, I'll fix it!"
+
+Conversation 21,inventory
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_21_1,Developer,,"This is your inventory, press number to use certain items in it"
+
+Conversation 22,BattlePortal
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_22_1,Developer,,Hey you have found lots of bugs here!
+Developer_22_2,Developer,,I think that's enough this map for now...
+Developer_22_3,Developer,,"I've finished another map, please check it now!"
+
+Conversation 23,StoneAttackTooManyTimes
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_23_1,Developer,,"You are dead, maybe be careful next time..."
+Developer_23_2,Developer,,"Wait, you mean you are killed by one stone? That's not correct, let me check..."
+Developer_23_3,Developer,,Oh I see! I should destroy the stone when it hits you! My fault! I will fix it!
+Developer_23_4,Developer,,I will also add a button for you to restart the game when you die :)
+
+Conversation 24,BossPortal
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_24_1,Developer,,Great! You are really talented! You are the best tester I've ever seen!
+Developer_24_2,Developer,,"I created a Boss Battle map if you want to check it, it is still WIP but I'd like you to take a look first..."
+
+Conversation 25,BossLose
+Description,
+entrytag,Actor,Description,Dialogue Text
+Developer_25_1,Developer,,So.. What do you think of the Boss?
+Developer_25_2,Developer,,"It's too hard and impossible to win? Yeah, yeah I know... I will fix that later..."
+Developer_25_3,Developer,,"Before that, I'd like you to stay here until I fix it."
+Developer_25_4,Developer,,What? You want to leave? Why? No way. I will not let you leave.
+Developer_25_5,Developer,,"You have to stay here and help me fix all the bugs now, and later, until I finish this game."
+Developer_25_6,Developer,,"Hey! Why so upset? You don't like my game? I think this would be a cool game and all players would like it, and you should be proud to be part of it!"
+
+Conversation 26,GhostHelp
+Description,
+entrytag,Actor,Description,Dialogue Text
+Bug_26_1,Bug,,I guess you failed fighting the boss.
+Bug_26_2,Bug,,You are not the first tester get stuck in this game.
+Bug_26_3,Bug,,This developer was hoping to get succeed in his  game and he get crazy after failing too many times.
+Bug_26_4,Bug,,He tries to ruin everyone's life now. But there is a way to fix things and run away.
+Bug_26_5,Bug,,I just turn on your ability to revert three fixes he did before.
+Bug_26_6,Bug,,"With those bugs re-introduced, I'm sure there is a way to beat the boss."
+Bug_26_7,Bug,,"And since the developer is working on the further game, he might not notice you and you can run away."
+Bug_26_8,Bug,,Open the Bug Book to turn on certain bugs. You can only turn on three of them!
+
+Conversation 27,bossInvincible
+Description,
+entrytag,Actor,Description,Dialogue Text
+Boss_27_1,Boss,,AHHHHH!
+Boss_27_2,Boss,,I..AM...UNBEATABLE!!!
+
+Conversation 28,BossWin
+Description,
+entrytag,Actor,Description,Dialogue Text
+Bug_28_1,Bug,,You won! Now get into that portal and leave this place!
+Developer_28_2,Developer,,No! Don't leave me! Please stay! This game will be fun! I promise!
+Bug_28_3,Bug,,Run! Before it's getting too late!
+Developer_28_4,Developer,,At least.. leave a comment and let me know what do you think of the game...
+
+Conversation 29,Bug2
+Description,
+entrytag,Actor,Description,Dialogue Text
+Bug_29_1,Bug,,Why are you still here... Run...
+Bug_29_2,Bug,,Before it's too late...
+
+Conversation 30,Bug3
+Description,
+entrytag,Actor,Description,Dialogue Text
+Bug_30_1,Bug,,What you are doing now is meaningless...
+Bug_30_2,Bug,,You will be regret...
