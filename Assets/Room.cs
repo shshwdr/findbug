@@ -8,6 +8,8 @@ public class Room : MonoBehaviour
 
     public GameObject instantiateObj;
 
+    public AudioClip clip;
+
     public void GetIntoRoom()
     {
         if (destroyObj)
@@ -16,6 +18,11 @@ public class Room : MonoBehaviour
             Destroy(destroyObj);
             var ob =Instantiate(instantiateObj,transform);
             destroyObj = ob;
+        }
+
+        if (clip)
+        {
+            MusicManager.Instance.PlayMusic(clip);
         }
     }
     // Start is called before the first frame update

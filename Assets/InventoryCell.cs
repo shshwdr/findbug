@@ -54,7 +54,7 @@ public class InventoryCell : MonoBehaviour
                 }
             }
             
-            CSDialogManager.Instance.StartConversation("inventory", null, null);
+            DialogueManager.StartConversation("inventory", null, null);
         }
     }
 

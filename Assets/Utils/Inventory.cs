@@ -29,7 +29,7 @@ public class Inventory : Singleton<Inventory>
     public int inventoryUnlockedCellCount = 5;
     public int selectedItemIndex;
     public bool startInventory;
-    public int maxCount = 7;
+    public int maxCount = 6;
     public bool checkMaxCount = false;
     //bool canUseItemOutRange = true;
     private BugablePlayer player;
@@ -82,6 +82,7 @@ public class Inventory : Singleton<Inventory>
     //}
     public void addItem(string itemName)
     {
+        SFXManager.Instance.PlaySFX("openchest");
         if (checkMaxCount && itemList.Count >= maxCount)
         {
             DialogueManager.ShowAlert("Your bag is full");

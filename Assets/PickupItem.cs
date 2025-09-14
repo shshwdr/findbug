@@ -10,6 +10,7 @@ public class PickupItem : InteractiveBase
     public override void Interact(PlayerMove player)
     {
         base.Interact(player);
+        
         if (!triggered)
         {
             Inventory.Instance.addItem(item);

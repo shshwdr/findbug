@@ -26,6 +26,9 @@ public class CSDialogManager : Singleton<CSDialogManager>
     {
         if (!CSDialogManager.Instance.finishedDialogue.ContainsKey(dialogname))
         {
+            
+            FindObjectOfType<HudController>().hud.SetActive(false);
+            SFXManager.Instance.PlayOpenMenu();
             lastDialogue = dialogname;
             CSDialogManager.Instance.finishedDialogue[dialogname] = true;
             DialogueManager.StartConversation(dialogname, null, null);
@@ -33,7 +36,6 @@ public class CSDialogManager : Singleton<CSDialogManager>
     }
     public void startDialog()
     {
-        FindObjectOfType<HudController>().hud.SetActive(false);
         
         if(BugManager.Instance.fixedBugs[4] != BugStatus.BugFixed)
         {

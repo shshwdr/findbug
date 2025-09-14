@@ -48,6 +48,8 @@ public class PlayerMeleeAttack : MonoBehaviour
 
     public void Attack()
     {
+        
+        SFXManager.Instance.PlaySFX("playerattacked");
         currentCooldownTimer = 0;
 
         //playerController.attackAnim();

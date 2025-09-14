@@ -25,6 +25,7 @@ public class BugBook : MonoBehaviour
     public void Show()
     {
         menu.SetActive(true);
+        SFXManager.Instance.PlayOpenMenu();
         for (int i = 0; i < CSVLoader.Instance.bugs.Count; i++)
         {
             cells[i].Init(i);
@@ -70,6 +71,8 @@ public class BugBook : MonoBehaviour
             
             cells[i].bugButton.onClick.AddListener(() =>
             {
+                
+                SFXManager.Instance.PlayClick();
                 if (selectedBugs.Contains(tempi))
                 {
                     BugManager.Instance.GetBugFixedAgain(tempi);
@@ -104,6 +107,7 @@ public class BugBook : MonoBehaviour
             deatilDesc.text = CSVLoader.Instance.bugs[i].Desc;
             deatilHint.text = "How to Repro: "+CSVLoader.Instance.bugs[i].Hint;
             deatilReason.text = "Root Reason: "+CSVLoader.Instance.bugs[i].Reason;
+            image.sprite = Resources.Load<Sprite>("bugIcon/" + CSVLoader.Instance.bugs[i].Identifier);
         }
     }
 

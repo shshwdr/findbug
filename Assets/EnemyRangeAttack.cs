@@ -20,6 +20,7 @@ public class EnemyRangeAttack : MonoBehaviour
 
     public void Attack()
     {
+        //SFXManager.Instance.PlaySFX("rockhit");
         var player = GameManager.Instance.player;
         //var dir = player.transform.position - transform.position;
         var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -36,12 +37,15 @@ public class EnemyRangeAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!enemyController.isStuned){
-            currentCooldownTimer += Time.deltaTime;
-            if (currentCooldownTimer > cooldownTime)
-            {
-                currentCooldownTimer = 0;
-                Attack();
+        if (GameManager.Instance.player.GetComponent<BugablePlayer>().roomName == "battle")
+        {
+            if (!enemyController.isStuned){
+                currentCooldownTimer += Time.deltaTime;
+                if (currentCooldownTimer > cooldownTime)
+                {
+                    currentCooldownTimer = 0;
+                    Attack();
+                }
             }
         }
     }

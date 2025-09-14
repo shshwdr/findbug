@@ -19,6 +19,7 @@ public class PlayerRangeAttack : MonoBehaviour
 
     public void Attack()
     {
+        SFXManager.Instance.PlaySFX("rockhit");
         var player = GameManager.Instance.player;
         dir = player.GetComponent<PlayerMove>().facing;
         //var dir = player.transform.position - transform.position;

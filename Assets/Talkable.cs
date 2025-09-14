@@ -21,7 +21,7 @@ public class Talkable : InteractiveBase
     {
         base.Interact(player);
 
-        GameManager.Instance.startDialogue(talkDialogue);
+        CSDialogManager.Instance.startDialog();
         DialogueManager.StartConversation(talkDialogue);
 
         if (talkDialogue == "GhostHelp")

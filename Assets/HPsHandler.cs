@@ -30,6 +30,12 @@ public class HPsHandler : MonoBehaviour
             {
                 string dialogname = "tooMuchHP";
                 CSDialogManager.Instance.StartConversation(dialogname, null, null);
+                
+                for (int i = 3; i < hps.Count; i++)
+                    {
+                        hps[i].gameObject.SetActive(false);
+                    }
+                
                 BugManager.Instance.fixBug(8);
                 return;
             }
@@ -43,7 +49,7 @@ public class HPsHandler : MonoBehaviour
                 return;
             }
             
-            CSDialogManager.Instance.StartConversation("playerHpBar", null, null);
+            DialogueManager.StartConversation("playerHpBar", null, null);
             
         }
     }

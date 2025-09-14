@@ -14,9 +14,12 @@ public class BugablePlayer : BugableObject
     public bool isDead => GetComponent<HPCharacterController>().isDead;
     public void teleport(Teleporter teleporter)
     {
+        SFXManager.Instance.PlaySFX("teleport");
         roomName = teleporter.targetRoomName;
         transform.position = teleporter.teleportTransform.position;
-        var room = teleporter.GetComponentInParent<Room>();
+        
+        
+        var room = teleporter.teleportTransform.GetComponentInParent<Room>();
         room.GetIntoRoom();
 
         if (roomName != "boss")
@@ -28,7 +31,7 @@ public class BugablePlayer : BugableObject
     {
         collider = GetComponent<CapsuleCollider2D>();
         trigger = GetComponent<CircleCollider2D>();
-        collider.isTrigger = true;
+        //collider.isTrigger = true;
         originPosition = transform.position;
         controller = GetComponent<HPCharacterController>();
     }
@@ -44,7 +47,7 @@ public class BugablePlayer : BugableObject
         
         if (id == 0)
         {
-            collider.isTrigger = true;
+            //collider.isTrigger = true;
         }if(id == 1)
         {
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
@@ -56,7 +59,7 @@ public class BugablePlayer : BugableObject
     {
         if (id == 0)
         {
-            collider.isTrigger = false;
+            //collider.isTrigger = false;
         }if(id == 1)
         {
             GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
@@ -130,7 +133,6 @@ public class BugablePlayer : BugableObject
                 string dialogname = "triggerWallBug";
                 if (!CSDialogManager.Instance.finishedDialogue.ContainsKey(dialogname))
                 {
-                    CSDialogManager.Instance.finishedDialogue[dialogname] = true;
                     CSDialogManager.Instance.StartConversation(dialogname, null, null);
                 }
             }
@@ -194,7 +196,7 @@ public class BugablePlayer : BugableObject
         }
         else
         {
-            CSDialogManager.Instance.StartConversation("buggablePlayer", null, null);
+            DialogueManager.StartConversation("buggablePlayer", null, null);
             //normal dialogues
         }
         return false;

@@ -7,40 +7,31 @@ using UnityEngine.Tilemaps;
 
 public class BugableWall : BugableObject
 {
+    Collider2D collider;
     // Start is called before the first frame update
     void Start()
     {
+        collider = GetComponent<Collider2D>();
+        collider.isTrigger = true;
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
         EventPool.OptIn<int>(EventPool.bugBack, OnBugBack);
     }
     void OnBugBack(int id)
     {
-        
+        if(id == 0)
+        {
+            collider.isTrigger = true;
+        }
     }
 
     void OnBugFixed(int id)
     {
-        // if(id == 0)
-        // {
-        //     foreach (var box in GetComponentsInChildren<BoxCollider2D>())
-        //     {
-        //         box.gameObject.SetActive(false);
-        //     }
-        //     //GetComponent<TilemapCollider2D>().isTrigger = false;
-        //    // GetComponent<TilemapCollider2D>().enabled = false;
-        //     StartCoroutine(test());
-        // }
+         if(id == 0)
+         {
+             collider.isTrigger = false;
+         }
     }
 
-    IEnumerator test()
-    {
-        yield return new WaitForSeconds(0.1f);
-        foreach (var box in GetComponentsInChildren<BoxCollider2D>(true))
-        {
-            box.gameObject.SetActive(true);
-        }
-        
-    }
 
     // Update is called once per frame
     void Update()

@@ -24,6 +24,8 @@ public class ErrorPopup : Singleton<ErrorPopup>
 
     public void ShowError(string error)
     {
+        
+        SFXManager.Instance.PlayError();
         canvas.SetActive(true);
         textLabel.text = error;
     }

@@ -44,6 +44,8 @@ public class PlayerHP : HPCharacterController
         if (BugManager.Instance.fixedBugs[9] == BugStatus.BugFixed)
         {
             base.Die();
+            
+            SFXManager.Instance.PlaySFX("playerdie");
             animator.SetTrigger("die");
             if (BugManager.Instance.fixedBugs[10] == BugStatus.BugFixed)
             {

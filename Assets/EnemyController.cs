@@ -149,6 +149,11 @@ public class EnemyController : HPCharacterController
         {
             CSDialogManager.Instance.StartConversation("BossWin");
         }
+
+        if (GetComponent<EnemyRangeAttack>() && Inventory.Instance.itemList.Contains("stoneGenerator"))
+        {
+            Inventory.Instance.addItem("stoneGenerator");
+        }
     }
 
 }

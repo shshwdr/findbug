@@ -20,7 +20,7 @@ public class InteractiveChild : MonoBehaviour
     {
         if(isTriggered && Input.GetKeyDown(KeyCode.Space))
         {
-            isTriggered = false;
+            //isTriggered = false;
             GetComponentInParent<InteractiveBase>().Interact(player);
         }
     }

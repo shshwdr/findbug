@@ -54,6 +54,8 @@ public class HudController : Singleton<HudController>
         hintButton.onClick.AddListener(() =>
         {
             var hintText = "";
+            
+            SFXManager.Instance.PlayHint();
             if (hintTimer <= 0)
             {
                 if ((int)GameManager.Instance.gameState >= (int)GameState.TalkedToGhost)
@@ -148,8 +150,16 @@ public class HudController : Singleton<HudController>
     // Update is called once per frame
     void Update()
     {
-        hintTimeLabel.text = hintTimer > 0 ? $"Next hint in {hintTime.ToString("0")} seconds" : "";
-        hintTimer -= 0;
+        //hintTimeLabel.text = hintTimer > 0 ? $"Next hint in {hintTime.ToString("0")} seconds" : "";
+        if (hintTimer > 0)
+        {
+            hintButton.GetComponentInChildren<TMP_Text>().text = $"HINT({ hintTime.ToString("0")})";
+        }
+        else
+        {
+            hintButton.GetComponentInChildren<TMP_Text>().text = "HINT";
+        }
+        hintTimer -= Time.deltaTime;
         //pointsText.text = CurrencyManager.Instance.AmountOfCurrency("points").ToString();
 
         //if (!GameModeManager.Instance.isInFindBugMode && BugableObjectManager.Instance.HasBugTriggered)

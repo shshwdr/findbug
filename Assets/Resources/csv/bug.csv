@@ -1,13 +1,12 @@
 ﻿Id,Identifier,Title,Desc,Hint,Reason,unlockLevel
-0,WallCollider,Wall Collider,Walls have no collider,"Leave the room through the wall, click 'Found It!' button, click the wall",Developer forgot to add collider on the wall,
-1,PlayerRotate,Player Rotate,Player rotate when collide with wall,"Move to the wall and walk along the wall, player would rotate incorrectly, click 'Found It!' and click player",Rotation restriction is not added on player,
-2,DoorCollider,Door Collider,Door has no collider,"Leave the room through the door, click 'Found It!' button, click the player",Developer forgot to add collider on the door,
-3,FlowersShow,Flowers Sort Order,Flowers show on top of player,"In town, walk on the flowers the flowers would show on top of player, find bug on player",Sorting order of the flower is higher than player,1
-4,PlayerDialogue,Dialogue,Player can move while in dialogue,"In town, walk while talking to the villager, find bug on player",Player movement should be disable in dialogue,1
-5,Chest,Chest,Chest can be opened more than once,"In town, open chest multiple times, find bug on the extra sword you get",Chest should not get trigger again after picked item from it,1
-6,ManyInventory,Too Many Inventory,Player get too many inventory,Get lots of apples from the town,,
-7,InventoryOutBound,Inventory Usage Bound,Player use inventory that does not exist,"When you only have, say 2 items in your inventory, press 3","Should take care of the edge case, when player press number lager than the inventory, ignore it",1
-8,Heals more HP,Too Much HP,Apple heals more than max hp,"Eat apple when you have full HP, find bug on player",Should limit the player's hp to never lager than initial HP,1
-9,DontDie,Don't Die,Player's hp gets to 0 but still alive,"Make player's hp to 0, find bug on player",Player dead logic does not get triggered when HP is 0,2
-10,StoneInfiniteAttack,Stone Infinite Attack,Stone keeps attacking player for too many times,"Get player hit by a stone and get killed by it, find bug on player","After projectile hit a target, it should destory itself",2
-,,,,,,
+0,WallCollider,Wall? What Wall?,Walls have no collision,"Walk through the wall, click 'Found It!', then click the wall",No collider on the wall,
+1,PlayerRotate,Dizzy Walk,Player rotates when hitting wall,"Walk along the wall, player rotates wrong, click 'Found It!', then click player",No rotation limit on player,
+2,DoorCollider,Open Sesame,Door has no collision,"Walk through the door, click 'Found It!', then click player",No collider on the door,
+3,FlowersShow,Flower Power,Flowers cover player,"In town, walk on flowers, they cover player, find bug on player",Flower sorting order is above player,1
+4,PlayerDialogue,Listen To Others!,Player moves in dialogue,"In town, walk while talking to villager, find bug on player",Player movement not disabled in dialogue,1
+5,Chest,Bottomless Chest,Chest opens many times,"In town, open chest many times, find bug on extra sword",Chest should not trigger again after giving item,1
+6,ManyInventory,Item Overload,Player gets too many items,"Collect many apples in town until they shows outside of the inventory, find bug on inventory",Inventory should have a limitation,
+7,InventoryOutBound,Button Masher,Player uses missing slot,"When have 2 items, press 3","Need check, ignore input larger than inventory",1
+8,HealsMoreHP,Apple of Immortality,Apple heals over max HP,"Eat apple at full HP, find bug on player",Player HP must not pass max value,1
+9,DontDie,Immortal Bug,Player stays alive at 0 HP,"Set HP to 0, find bug on player",Death logic not triggered at 0 HP,2
+10,StoneInfiniteAttack,Rock Revenge,Stone hits too many times,"Get hit by stone until death, find bug on player",Projectile should destroy after hit,2

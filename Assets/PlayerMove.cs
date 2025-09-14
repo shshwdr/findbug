@@ -47,9 +47,9 @@ public class PlayerMove : MonoBehaviour
         movement = Vector2.ClampMagnitude(movement, 1);
         if (movement.magnitude > 0.1f)
         {
-            if (CSDialogManager.Instance.isInBuggyDialogue)
+             if (CSDialogManager.Instance.isInBuggyDialogue)
             {
-                BugManager.Instance.triggerBug(4);
+                BugManager.Instance.triggerBug (4);
             }
         }
 

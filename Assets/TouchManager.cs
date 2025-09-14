@@ -39,10 +39,19 @@ public class TouchManager : MonoBehaviour
                         {
                             if (script.DidTap())
                             {
+                                hasHitted = true;
+                                SFXManager.Instance.PlayBugSuccess();
                                 break;
                             }
                         }
+                        
                     }
+                }
+
+                if (!hasHitted)
+                {
+                    
+                    SFXManager.Instance.PlayBugFailed();
                 }
                 //improve this later, don't call manager in update
 
