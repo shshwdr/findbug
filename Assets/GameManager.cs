@@ -17,6 +17,8 @@ public class GameManager : Singleton<GameManager>
     public GameObject voidPortal;
     public GameObject ghostHelp;
 
+    public GameObject firstGhost;
+
     public void startDialogue(string dialogueName)
     {
         

@@ -48,6 +48,7 @@ public class CSDialogManager : Singleton<CSDialogManager>
         }
         string test = DialogueManager.lastConversationStarted;
         //Debug.Log(test);
+        
     }
     public void stopDialog()
     {
@@ -72,6 +73,7 @@ public class CSDialogManager : Singleton<CSDialogManager>
         {
             FindObjectOfType<Boss>().SetInvincible();
         }
+        GameManager.Instance.firstGhost.SetActive(false);
 
 
         lastDialogue = "";

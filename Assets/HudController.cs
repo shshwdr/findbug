@@ -15,7 +15,7 @@ public class HudController : Singleton<HudController>
 
     public Button hintButton;
 
-    private float hintTime = 60;
+    private float hintTime = 90;
 
     private float hintTimer = 0;
 
@@ -58,38 +58,60 @@ public class HudController : Singleton<HudController>
             SFXManager.Instance.PlayHint();
             if (hintTimer <= 0)
             {
-                if ((int)GameManager.Instance.gameState >= (int)GameState.TalkedToGhost)
+                if (lastHintBugId != -1)
                 {
-                    
-                    hintText = $"Select three bugs to get them back and kill the boss";
+                    hintText = CSVLoader.Instance.bugs[lastHintBugId].Hint;
+                    FindObjectOfType<PopupMenu>().Show(hintText);
                 }
                 else
                 {
-                    if (lastHintBugId == -1)
+                    FindObjectOfType<PopupMenu>().Show("Do you want to check the hint?", () =>
                     {
-                        for (int i = 0; i < BugManager.Instance.fixedBugs.Length; i++)
+                        if ((int)GameManager.Instance.gameState >= (int)GameState.TalkedToGhost)
                         {
-                            if (BugManager.Instance.fixedBugs[i] != BugStatus.BugFixed)
+                    
+                            hintText = $"Select bugs 'Listen To Others!', 'Immortal Bug' to get them back and kill the boss";
+                        }
+                        else
+                        {
+                            if (lastHintBugId == -1)
                             {
-                                lastHintBugId = i;
-                                break;
+                                for (int i = 0; i < BugManager.Instance.fixedBugs.Length; i++)
+                                {
+                                    if (BugManager.Instance.fixedBugs[i] != BugStatus.BugFixed)
+                                    {
+                                        lastHintBugId = i;
+                                        break;
+                                    }
+                                }
+                            }
+
+                            if (lastHintBugId != -1)
+                            {
+                                hintText = CSVLoader.Instance.bugs[lastHintBugId].Hint;
+                            }
+                            else
+                            {
+                                hintText = "No hint available";
                             }
                         }
-                    }
+                    
+                    
+                        FindObjectOfType<PopupMenu>().Show(hintText);
+                    });
 
-                    if (lastHintBugId != -1)
-                    {
-                        hintText = CSVLoader.Instance.bugs[lastHintBugId].Hint;
-                    }
                 }
+               
+                
             }
             else
             {
                 hintText = $"Next hint in {hintTimer.ToString("0")} seconds";
+                FindObjectOfType<PopupMenu>().Show(hintText);
             }
 
-            FindObjectOfType<PopupMenu>().Show(hintText);
         });
+        hud.SetActive(false);
     }
 
     void OnBugFixed(int bugId)

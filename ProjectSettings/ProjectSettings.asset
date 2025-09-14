@@ -44,8 +44,8 @@ PlayerSettings:
   m_HolographicTrackingLossScreen: {fileID: 0}
   defaultScreenWidth: 1024
   defaultScreenHeight: 768
-  defaultScreenWidthWeb: 960
-  defaultScreenHeightWeb: 540
+  defaultScreenWidthWeb: 1600
+  defaultScreenHeightWeb: 900
   m_StereoRenderingPath: 0
   m_ActiveColorSpace: 0
   unsupportedMSAAFallback: 0
@@ -815,7 +815,7 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: dUI_MANAGER
+    Android: dUI_MANAGER;USE_PHYSICS2D
     EmbeddedLinux: dUI_MANAGER
     GameCoreScarlett: dUI_MANAGER
     GameCoreXboxOne: dUI_MANAGER
@@ -825,12 +825,12 @@ PlayerSettings:
     PS5: dUI_MANAGER
     QNX: dUI_MANAGER
     Stadia: dUI_MANAGER
-    Standalone: dUI_MANAGER
+    Standalone: dUI_MANAGER;USE_PHYSICS2D
     VisionOS: dUI_MANAGER
-    WebGL: dUI_MANAGER
+    WebGL: dUI_MANAGER;USE_PHYSICS2D
     Windows Store Apps: dUI_MANAGER
     XboxOne: dUI_MANAGER
-    iPhone: dUI_MANAGER
+    iPhone: dUI_MANAGER;USE_PHYSICS2D
     tvOS: dUI_MANAGER
   additionalCompilerArguments: {}
   platformArchitecture: {}

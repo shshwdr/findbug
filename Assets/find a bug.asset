@@ -8564,7 +8564,7 @@ MonoBehaviour:
         type: 0
         typeString: 
       - title: Dialogue Text
-        value: I guess you failed fighting the boss.
+        value: Hi, see you again. I guess you failed fighting the boss.
         type: 0
         typeString: 
       - title: Parenthetical
