@@ -11,20 +11,25 @@ public class BugableWall : BugableObject
     void Start()
     {
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
+        EventPool.OptIn<int>(EventPool.bugBack, OnBugBack);
+    }
+    void OnBugBack(int id)
+    {
+        
     }
 
     void OnBugFixed(int id)
     {
-        if(id == 0)
-        {
-            foreach (var box in GetComponentsInChildren<BoxCollider2D>())
-            {
-                box.gameObject.SetActive(false);
-            }
-            //GetComponent<TilemapCollider2D>().isTrigger = false;
-           // GetComponent<TilemapCollider2D>().enabled = false;
-            StartCoroutine(test());
-        }
+        // if(id == 0)
+        // {
+        //     foreach (var box in GetComponentsInChildren<BoxCollider2D>())
+        //     {
+        //         box.gameObject.SetActive(false);
+        //     }
+        //     //GetComponent<TilemapCollider2D>().isTrigger = false;
+        //    // GetComponent<TilemapCollider2D>().enabled = false;
+        //     StartCoroutine(test());
+        // }
     }
 
     IEnumerator test()
@@ -48,13 +53,13 @@ public class BugableWall : BugableObject
         if (BugManager.Instance.fixedBugs[0] == BugStatus.BugTriggered)
         {
             string dialogname = "fixWallBug";
-            DialogueManager.StartConversation(dialogname, null, null);
+            CSDialogManager.Instance.StartConversation(dialogname, null, null);
             BugManager.Instance.fixBug(0);
             return true;
         }
         else
         {
-            DialogueManager.StartConversation("buggableWall", null, null);
+            CSDialogManager.Instance.StartConversation("buggableWall", null, null);
             //normal dialogues
         }
         return false;

@@ -29,7 +29,7 @@ public class HPsHandler : MonoBehaviour
             if (BugManager.Instance.fixedBugs[8] == BugStatus.BugDefault && GameManager.Instance.player.GetComponent<PlayerHP>().currentHP>6)
             {
                 string dialogname = "tooMuchHP";
-                DialogueManager.StartConversation(dialogname, null, null);
+                CSDialogManager.Instance.StartConversation(dialogname, null, null);
                 BugManager.Instance.fixBug(8);
                 return;
             }
@@ -38,12 +38,12 @@ public class HPsHandler : MonoBehaviour
                 
                 string dialogname = "killedButStillAlive";
                 BugManager.Instance.fixBug(9);
-                DialogueManager.StartConversation(dialogname, null, null);
+                CSDialogManager.Instance.StartConversation(dialogname, null, null);
                 
                 return;
             }
             
-            DialogueManager.StartConversation("playerHpBar", null, null);
+            CSDialogManager.Instance.StartConversation("playerHpBar", null, null);
             
         }
     }

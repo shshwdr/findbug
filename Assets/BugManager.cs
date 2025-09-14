@@ -2,7 +2,7 @@ using Pool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum BugStatus  { BugDefault, BugTriggered, BugWillBeFixed,BugFixed};
+public enum BugStatus  { BugDefault, BugTriggered, BugWillBeFixed,BugFixed,BugBack};
 public class BugManager : Singleton<BugManager>
 {
     
@@ -97,5 +97,17 @@ public class BugManager : Singleton<BugManager>
     void Update()
     {
         
+    }
+
+    public void GetBugBack(int i)
+    {
+        finishFixBug(i);
+    }
+
+    public void GetBugFixedAgain(int i)
+    {
+        fixedBugs[i] = BugStatus.BugBack;
+        
+        EventPool.Trigger<int>(EventPool.bugBack, i);
     }
 }

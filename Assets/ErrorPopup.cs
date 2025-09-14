@@ -15,6 +15,11 @@ public class ErrorPopup : Singleton<ErrorPopup>
     {
         canvas.SetActive(false);
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
+        EventPool.OptIn<int>(EventPool.bugBack, OnBugBack);
+    }
+    void OnBugBack(int id)
+    {
+        
     }
 
     public void ShowError(string error)

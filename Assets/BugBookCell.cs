@@ -15,7 +15,16 @@ public class BugBookCell : MonoBehaviour
     public void Init(int id)
     {
         this.id = id;
-        text.text = BugManager.Instance.fixedBugs[id] == BugStatus.BugFixed? CSVLoader.Instance.bugs[id].Title:"???";
+        text.text =(int) BugManager.Instance.fixedBugs[id] >= (int)BugStatus.BugFixed? CSVLoader.Instance.bugs[id].Title:"???";
+
+        if ((int)GameManager.Instance.gameState >= (int)GameState.TalkedToGhost)
+        {
+            bugButton.gameObject.SetActive(true);
+        }
+        else
+        {
+            bugButton.gameObject.SetActive(false);
+        }
     }
     // Start is called before the first frame update
     void Start()

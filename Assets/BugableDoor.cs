@@ -10,6 +10,15 @@ public class BugableDoor : BugableObject
     void Start()
     {
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
+        EventPool.OptIn<int>(EventPool.bugBack, OnBugBack);
+    }
+    void OnBugBack(int id)
+    {
+        
+        if (id == 2)
+        {
+            doorBlocker.SetActive(false);
+        }
     }
 
     void OnBugFixed(int id)
@@ -19,6 +28,7 @@ public class BugableDoor : BugableObject
             doorBlocker.SetActive(true);
         }
     }
+
 
     // Update is called once per frame
     void Update()
@@ -31,13 +41,13 @@ public class BugableDoor : BugableObject
         if (BugManager.Instance.fixedBugs[2] == BugStatus.BugTriggered)
         {
             string dialogname = "fixDoorBug";
-            DialogueManager.StartConversation(dialogname, null, null);
+            CSDialogManager.Instance.StartConversation(dialogname);
             BugManager.Instance.fixBug(2);
             return true;
         }
         else
         {
-            DialogueManager.StartConversation("buggableDoor", null, null);
+            CSDialogManager.Instance.StartConversation("buggableDoor", null, null);
             //normal dialogues
         }
         return false;

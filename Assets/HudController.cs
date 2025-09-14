@@ -30,6 +30,7 @@ public class HudController : Singleton<HudController>
 
     public HPsHandler hPsHandler;
 
+    public GameObject hud;
     // Use this for initialization
     void Start()
     {
@@ -55,21 +56,29 @@ public class HudController : Singleton<HudController>
             var hintText = "";
             if (hintTimer <= 0)
             {
-                if (lastHintBugId == -1)
+                if ((int)GameManager.Instance.gameState >= (int)GameState.TalkedToGhost)
                 {
-                    for (int i = 0; i < BugManager.Instance.fixedBugs.Length; i++)
+                    
+                    hintText = $"Select three bugs to get them back and kill the boss";
+                }
+                else
+                {
+                    if (lastHintBugId == -1)
                     {
-                        if (BugManager.Instance.fixedBugs[i] != BugStatus.BugFixed)
+                        for (int i = 0; i < BugManager.Instance.fixedBugs.Length; i++)
                         {
-                            lastHintBugId = i;
-                            break;
+                            if (BugManager.Instance.fixedBugs[i] != BugStatus.BugFixed)
+                            {
+                                lastHintBugId = i;
+                                break;
+                            }
                         }
                     }
-                }
 
-                if (lastHintBugId != -1)
-                {
-                    hintText = CSVLoader.Instance.bugs[lastHintBugId].Hint;
+                    if (lastHintBugId != -1)
+                    {
+                        hintText = CSVLoader.Instance.bugs[lastHintBugId].Hint;
+                    }
                 }
             }
             else

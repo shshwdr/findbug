@@ -12,6 +12,11 @@ public class HiddenObjects : MonoBehaviour
     {
 
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
+        EventPool.OptIn<int>(EventPool.bugBack, OnBugBack);
+    }
+    void OnBugBack(int id)
+    {
+        
     }
 
 

@@ -37,6 +37,18 @@ public class BugablePlayer : BugableObject
     {
 
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
+        EventPool.OptIn<int>(EventPool.bugBack, OnBugBack);
+    }
+    void OnBugBack(int id)
+    {
+        
+        if (id == 0)
+        {
+            collider.isTrigger = true;
+        }if(id == 1)
+        {
+            GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+        }
     }
 
 
@@ -58,8 +70,14 @@ public class BugablePlayer : BugableObject
         GetComponent<PlayerHP>().Reset();
         GetComponent<HPCharacterController>().isDead = false;
         controller.animator.SetTrigger("reset");
+        if (roomName == "boss")
+        {
+            roomName = "battle";
+        }
         transform.rotation = Quaternion.identity;
         transform.position = originPosition;
+        FindObjectOfType<HudController>().
+            HideRestartButton();
     }
 
     // Update is called once per frame
@@ -104,7 +122,7 @@ public class BugablePlayer : BugableObject
                 if (!CSDialogManager.Instance.finishedDialogue.ContainsKey(dialogname))
                 {
                     CSDialogManager.Instance.finishedDialogue[dialogname] = true;
-                    DialogueManager.StartConversation(dialogname, null, null);
+                    CSDialogManager.Instance.StartConversation(dialogname, null, null);
                 }
             }
             BugManager.Instance.fixedBugs[0] = BugStatus.BugTriggered;
@@ -119,7 +137,7 @@ public class BugablePlayer : BugableObject
         {
                 
             string dialogname = "killedButStillAlive";
-            DialogueManager.StartConversation(dialogname, null, null);
+            CSDialogManager.Instance.StartConversation(dialogname, null, null);
             BugManager.Instance.fixBug(9);
                 
             return true;
@@ -127,47 +145,47 @@ public class BugablePlayer : BugableObject
         if (BugManager.Instance.fixedBugs[10] == BugStatus.BugTriggered)
         {
             string dialogname = "StoneAttackTooManyTimes";
-            DialogueManager.StartConversation(dialogname, null, null);
+            CSDialogManager.Instance.StartConversation(dialogname, null, null);
             BugManager.Instance.fixBug(10);
             return true;
         }
         if (BugManager.Instance.fixedBugs[0] == BugStatus.BugTriggered)
         {
             string dialogname = "fixWallBug";
-            DialogueManager.StartConversation(dialogname, null, null);
+            CSDialogManager.Instance.StartConversation(dialogname, null, null);
             BugManager.Instance.fixBug(0);
             return true;
         }
         else if (BugManager.Instance.fixedBugs[1] == BugStatus.BugDefault && transform.eulerAngles.z!=0)
         {
             string dialogname = "fixRotationOnCollide";
-            DialogueManager.StartConversation(dialogname, null, null);
+            CSDialogManager.Instance.StartConversation(dialogname, null, null);
             BugManager.Instance.fixBug(1);
             return true;
         }else if (BugManager.Instance.fixedBugs[2] == BugStatus.BugTriggered)
         {
             string dialogname = "fixDoorBug";
-            DialogueManager.StartConversation(dialogname, null, null);
+            CSDialogManager.Instance.StartConversation(dialogname, null, null);
             BugManager.Instance.fixBug(2);
             return true;
         }
         else if (BugManager.Instance.fixedBugs[3] == BugStatus.BugTriggered)
         {
             string dialogname = "fixFlowerBug";
-            DialogueManager.StartConversation(dialogname, null, null);
+            CSDialogManager.Instance.StartConversation(dialogname, null, null);
             BugManager.Instance.fixBug(3);
             return true;
         }
         else if (BugManager.Instance.fixedBugs[4] == BugStatus.BugTriggered)
         {
             string dialogname = "moveInDialogue";
-            DialogueManager.StartConversation(dialogname, null, null);
+            CSDialogManager.Instance.StartConversation(dialogname, null, null);
             BugManager.Instance.fixBug(4);
             return true;
         }
         else
         {
-            DialogueManager.StartConversation("buggablePlayer", null, null);
+            CSDialogManager.Instance.StartConversation("buggablePlayer", null, null);
             //normal dialogues
         }
         return false;

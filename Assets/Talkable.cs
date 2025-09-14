@@ -21,6 +21,12 @@ public class Talkable : InteractiveBase
     {
         base.Interact(player);
 
-        DialogueManager.StartConversation(talkDialogue, null, null);
+        GameManager.Instance.startDialogue(talkDialogue);
+        DialogueManager.StartConversation(talkDialogue);
+
+        if (talkDialogue == "GhostHelp")
+        {
+            GameManager.Instance.gameState =  GameState.TalkedToGhost;
+        }
     }
 }

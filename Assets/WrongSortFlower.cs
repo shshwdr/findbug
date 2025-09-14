@@ -10,6 +10,15 @@ public class WrongSortFlower : BugableObject
     void Start()
     {
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
+        EventPool.OptIn<int>(EventPool.bugBack, OnBugBack);
+    }
+    void OnBugBack(int id)
+    {
+        if (id == 3)
+        {
+            GetComponent<TilemapRenderer>().sortingLayerName = "UI";
+            GetComponent<TilemapRenderer>().sortingOrder = 0;
+        }
     }
 
     void OnBugFixed(int id)
@@ -32,13 +41,13 @@ public class WrongSortFlower : BugableObject
         if (BugManager.Instance.fixedBugs[3] == BugStatus.BugTriggered)
         {
             string dialogname = "fixFlowerBug";
-            DialogueManager.StartConversation(dialogname, null, null);
+            CSDialogManager.Instance.StartConversation(dialogname, null, null);
             BugManager.Instance.fixBug(3);
             return true;
         }
         else
         {
-            DialogueManager.StartConversation("buggableFlower", null, null);
+            CSDialogManager.Instance.StartConversation("buggableFlower", null, null);
             //normal dialogues
         }
         return false;

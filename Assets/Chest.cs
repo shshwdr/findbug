@@ -25,6 +25,15 @@ public class Chest : InteractiveBase
     {
 
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
+        EventPool.OptIn<int>(EventPool.bugBack, OnBugBack);
+    }
+    void OnBugBack(int id)
+    {
+        if (id == 5)
+        {
+            onlyTriggerOnce = false;
+            return;
+        }
     }
     void OnBugFixed(int id)
     {

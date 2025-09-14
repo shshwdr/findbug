@@ -67,6 +67,7 @@ public class BugBook : MonoBehaviour
             {
                 if (selectedBugs.Contains(tempi))
                 {
+                    BugManager.Instance.GetBugFixedAgain(i);
                     cells[i].bugButtonSelected .SetActive(false);
                     selectedBugs.Remove(tempi);
                 }
@@ -78,6 +79,7 @@ public class BugBook : MonoBehaviour
                     }
                     else
                     {
+                        BugManager.Instance.GetBugBack(i);
                         cells[i].bugButtonSelected.SetActive(true);
                         selectedBugs.Add(tempi);
                     }

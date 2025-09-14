@@ -53,9 +53,10 @@ public class PlayerHP : HPCharacterController
 
         if (GetComponent<BugablePlayer>().roomName == "boss"&& GameManager.Instance.gameState != GameState.BossFailed)
         {
-            DialogueManager.StartConversation("BossLose", null, null);
+            var dialogueName = "BossLose";
+            GameManager.Instance.startDialogue(dialogueName);
+            CSDialogManager.Instance.StartConversation(dialogueName, null, null);
             GameManager.Instance.gameState = GameState.BossFailed;
-            GetComponent<BugablePlayer>().OnRestart();
             GameManager.Instance.ghostHelp.SetActive(true);
         }
     }

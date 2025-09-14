@@ -96,8 +96,8 @@ public class EnemyController : HPCharacterController
 
         if (roomName == GameManager.Instance.player.GetComponent<BugablePlayer>().roomName)
         {
-            //var target = GameManager.Instance.player.transform.position;
-           // transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * originSpeed);
+            var target = GameManager.Instance.player.transform.position;
+            transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * originSpeed);
         }
     }
 

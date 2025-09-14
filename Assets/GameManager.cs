@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using PixelCrushers.DialogueSystem;
 using UnityEngine;
-public enum GameState {Default,BattlePortalOn,BossPortalOn,BossFailed}
+public enum GameState {Default,BattlePortalOn,BossPortalOn,BossFailed, TalkedToGhost}
 public class GameManager : Singleton<GameManager>
 {
     public BugablePlayer player;
@@ -15,14 +15,22 @@ public class GameManager : Singleton<GameManager>
     public GameObject battlePortal;
     public GameObject bossPortal;
     public GameObject ghostHelp;
-    
-    
+
+    public void startDialogue(string dialogueName)
+    {
+        
+    }
     
     void Start()
     {
         
         player = GameObject.FindObjectOfType<BugablePlayer>();
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
+        EventPool.OptIn<int>(EventPool.bugBack, OnBugBack);
+    }
+    void OnBugBack(int id)
+    {
+        
     }
 
     private void Awake()
@@ -42,7 +50,7 @@ public class GameManager : Singleton<GameManager>
         if (canUnlockBattle() && gameState == GameState.Default)
         {
             gameState = GameState.BattlePortalOn;
-            DialogueManager.StartConversation("BattlePortal", null, null);
+            CSDialogManager.Instance.StartConversation("BattlePortal", null, null);
             battlePortal.gameObject.SetActive(true);
         }
         
@@ -50,7 +58,7 @@ public class GameManager : Singleton<GameManager>
         if (canUnlockFinal() && gameState == GameState.BattlePortalOn)
         {
             gameState = GameState.BossPortalOn;
-            DialogueManager.StartConversation("BossPortal", null, null);
+            CSDialogManager.Instance.StartConversation("BossPortal", null, null);
             bossPortal.gameObject.SetActive(true);
         }
     }

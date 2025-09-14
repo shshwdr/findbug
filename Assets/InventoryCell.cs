@@ -31,7 +31,7 @@ public class InventoryCell : MonoBehaviour
             if (BugManager.Instance.fixedBugs[6] == BugStatus.BugDefault && index>=Inventory.Instance.maxCount)
             {
                 string dialogname = "tooManyInventory";
-                DialogueManager.StartConversation(dialogname, null, null);
+                CSDialogManager.Instance.StartConversation(dialogname, null, null);
                 BugManager.Instance.fixBug(6);
                 return;
             }
@@ -48,13 +48,13 @@ public class InventoryCell : MonoBehaviour
                 if(swordCount > 1)
                 {
                     string dialogname = "chestMultiTime";
-                    DialogueManager.StartConversation(dialogname, null, null);
+                    CSDialogManager.Instance.StartConversation(dialogname, null, null);
                     BugManager.Instance.fixBug(5);
                     return;
                 }
             }
             
-            DialogueManager.StartConversation("inventory", null, null);
+            CSDialogManager.Instance.StartConversation("inventory", null, null);
         }
     }
 

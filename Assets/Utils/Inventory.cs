@@ -148,7 +148,7 @@ public class Inventory : Singleton<Inventory>
             {
                 BugManager.Instance.fixBug(7);
                 ErrorPopup.Instance.ShowError("ArgumentOutOfRangeException: Index was out of range. ");
-                CSDialogManager.Instance.StartConversationo("useItemNotExisted");
+                CSDialogManager.Instance.StartConversation("useItemNotExisted");
                 return;
             }
         }
@@ -222,6 +222,11 @@ public class Inventory : Singleton<Inventory>
 
 
         EventPool.OptIn<int>(EventPool.bugFixed, OnBugFixed);
+        EventPool.OptIn<int>(EventPool.bugBack, OnBugBack);
+    }
+    void OnBugBack(int id)
+    {
+        
     }
 
     // Update is called once per frame
