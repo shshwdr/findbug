@@ -112,7 +112,7 @@ public class PlayerMeleeAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.X))
             {
-                Attack();
+              //  Attack();
             }
         }
     }

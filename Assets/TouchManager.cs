@@ -10,9 +10,17 @@ public class TouchManager : MonoBehaviour
     public Texture2D cursorTexture;
     public Texture2D cursorTextureHit;
 
+    public GameObject cursor;
+
     enum CursorStateEnum { playMode, findBugNormal, findBugHit };
     CursorStateEnum cursorState;
     
+    void Awake()
+    {
+        {
+            Cursor.lockState = CursorLockMode.Confined; // WebGL 推荐
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -69,10 +77,10 @@ public class TouchManager : MonoBehaviour
         else// if (!hasHitted)
         {
             ChangeCursorState(CursorStateEnum.findBugNormal);
+            cursor.GetComponent<RectTransform>().position = Input.mousePosition; 
         }
 
     }
-
     void ChangeCursorState(CursorStateEnum newState)
     {
         if (cursorState != newState)
@@ -80,13 +88,18 @@ public class TouchManager : MonoBehaviour
             switch (newState)
             {
                 case CursorStateEnum.findBugNormal:
-                    Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
-                    break;
+                    //Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
+                    //break;
                 case CursorStateEnum.findBugHit:
-                    Cursor.SetCursor(cursorTextureHit, Vector2.zero, CursorMode.Auto);
+                    
+                    Cursor.visible = false;
+                    cursor.SetActive(true);
+                    //Cursor.SetCursor(cursorTextureHit, Vector2.zero, CursorMode.Auto);
                     break;
                 case CursorStateEnum.playMode:
-                    Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+                    Cursor.visible = true;
+                    cursor.SetActive(false);
+                    //Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
                     break;
             }
             cursorState = newState;

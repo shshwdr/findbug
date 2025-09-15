@@ -43,7 +43,7 @@ public class PlayerRangeAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.C))
             {
-                Attack();
+               // Attack();
             }
         }
     }

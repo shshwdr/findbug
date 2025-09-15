@@ -13,10 +13,18 @@ public class Chest : InteractiveBase
         base.Interact(player);
         if (!triggered)
         {
-            Inventory.Instance.addItem(item);
             if (onlyTriggerOnce)
             {
-                triggered = true;
+                if (!Inventory.Instance.itemList.Contains("sword"))
+                {
+                    Inventory.Instance.addItem(item);
+                    triggered = true;
+                }
+            }
+            else
+            {
+                
+                Inventory.Instance.addItem(item);
             }
         }
     }

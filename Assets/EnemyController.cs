@@ -122,13 +122,18 @@ public class EnemyController : HPCharacterController
         
         if (roomName == "boss" && currentHP <=2)
         {
-            CSDialogManager.Instance.lastDialogue = "BossInvincible";
-            isInvincible = true;
-            foreach (var bullet in FindObjectsOfType<PlyaerBullet>())
+            var dialogname = "BossInvincible";
+            if (!CSDialogManager.Instance.finishedDialogue.ContainsKey(dialogname))
             {
-                Destroy(bullet.gameObject);
+                CSDialogManager.Instance.lastDialogue = "BossInvincible";
+                isInvincible = true;
+                foreach (var bullet in FindObjectsOfType<PlyaerBullet>())
+                {
+                    Destroy(bullet.gameObject);
+                }
+                DialogueManager.StartConversation("bossInvincible");
+                CSDialogManager.Instance.finishedDialogue[dialogname] = true;
             }
-            DialogueManager.StartConversation("bossInvincible");
         }
     }
 

@@ -15,31 +15,31 @@ public class CheatManager : Singleton<CheatManager>
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            hasUnlimitResource = !hasUnlimitResource;
-        }
-
-        for(int i = 0; i <= 9; i++)
-        {
-            if (Input.GetKey(KeyCode.C) && Input.GetKeyDown(KeyCode.Alpha0 + i))
-            {
-                BugManager.Instance.finishFixBug(i);
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            for (int i = 0; i < BugManager.Instance.fixedBugs.Length; i++)
-            {
-                BugManager.Instance.finishFixBug(i);
-            }
-        }
-        
-        
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            GameManager.Instance.gameState = GameState.TalkedToGhost;
-        }
+        // if (Input.GetKeyDown(KeyCode.O))
+        // {
+        //     hasUnlimitResource = !hasUnlimitResource;
+        // }
+        //
+        // for(int i = 0; i <= 9; i++)
+        // {
+        //     if (Input.GetKey(KeyCode.C) && Input.GetKeyDown(KeyCode.Alpha0 + i))
+        //     {
+        //         BugManager.Instance.finishFixBug(i);
+        //     }
+        // }
+        //
+        // if (Input.GetKeyDown(KeyCode.P))
+        // {
+        //     for (int i = 0; i < BugManager.Instance.fixedBugs.Length; i++)
+        //     {
+        //         BugManager.Instance.finishFixBug(i);
+        //     }
+        // }
+        //
+        //
+        // if (Input.GetKeyDown(KeyCode.L))
+        // {
+        //     GameManager.Instance.gameState = GameState.TalkedToGhost;
+        // }
     }
 }
