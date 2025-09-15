@@ -75,8 +75,6 @@ public class BugablePlayer : BugableObject
     {
         GetComponent<PlayerHP>().Reset();
         GetComponent<HPCharacterController>().isDead = false;
-        CSDialogManager.Instance.isInBuggyDialogue = false;
-        CSDialogManager.Instance.isInDialogue = false;
         controller.animator.SetTrigger("reset");
         if (roomName == "boss")
         {
